@@ -1,0 +1,177 @@
+{
+  "name": "react-redux-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for React, Redux, and Webpack",
+  "main": "index.js",
+  "author": "Bill Hefty",
+  "license": "MIT",
+  "scripts": {
+    "lint": "./node_modules/.bin/standard --verbose | snazzy",
+    "lint-fix": "./node_modules/.bin/standard --fix",
+    "postinstall": "npm run build:dll",
+    "prebuild": "npm run build:clean",
+    "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "build:clean": "npm run test:clean && rimraf .build",
+    "build:dll": "node ./internals/scripts/dependencies.js",
+    "dev": "webpack-dev-server --env.dev",
+    "production": "webpack -p --env.production",
+    "test:clean": "rimraf ./coverage",
+    "test": "cross-env NODE_ENV=test jest --coverage",
+    "test:watch": "cross-env NODE_ENV=test jest --watchAll",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
+  },
+  "babel": {
+    "presets": [
+      [
+        "latest",
+        {
+          "es2015": {
+            "modules": false
+          }
+        }
+      ],
+      "react",
+      "stage-0"
+    ],
+    "env": {
+      "production": {
+        "only": [
+          "app"
+        ],
+        "plugins": [
+          "transform-react-remove-prop-types",
+          "transform-react-constant-elements",
+          "transform-react-inline-elements"
+        ]
+      },
+      "test": {
+        "plugins": [
+          "transform-es2015-modules-commonjs",
+          "dynamic-import-node"
+        ]
+      }
+    }
+  },
+  "dllPlugin": {
+    "path": "node_modules/react-redux-boilerplate-dlls",
+    "exclude": [
+      "chalk",
+      "compression",
+      "cross-env",
+      "express",
+      "ip",
+      "minimist",
+      "sanitize.css"
+    ],
+    "include": [
+      "core-js",
+      "lodash",
+      "eventsource-polyfill"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "app/**/*.{js,jsx}",
+      "!app/**/*.test.{js,jsx}",
+      "!app/*/RbGenerated*/*.{js,jsx}",
+      "!app/app.js",
+      "!app/routes.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 98,
+        "branches": 91,
+        "functions": 98,
+        "lines": 98
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "app"
+    ],
+    "moduleNameMapper": {
+      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/internals/mocks/cssModule.js",
+      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/internals/mocks/image.js"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/internals/testing/test-bundler.js",
+    "testRegex": "tests/.*\\.test\\.js$"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "chalk": "^1.1.3",
+    "compression": "^1.6.2",
+    "cross-env": "^5.0.1",
+    "express": "^4.15.3",
+    "fontfaceobserver": "^2.0.13",
+    "immutable": "^3.8.1",
+    "invariant": "^2.2.2",
+    "ip": "^1.1.5",
+    "lodash": "^4.17.4",
+    "minimist": "^1.2.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-helmet": "^5.1.3",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.1",
+    "redux-immutable": "^4.0.0",
+    "redux-saga": "^0.15.4",
+    "reselect": "^3.0.1",
+    "sanitize.css": "^5.0.0",
+    "styled-components": "^2.1.0",
+    "warning": "^3.0.0",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.0",
+    "babel-plugin-dynamic-import-node": "^1.0.2",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-plugin-transform-react-constant-elements": "^6.23.0",
+    "babel-plugin-transform-react-inline-elements": "^6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cheerio": "^1.0.0-rc.1",
+    "circular-dependency-plugin": "^3.0.0",
+    "coveralls": "^2.13.1",
+    "css-loader": "^0.28.4",
+    "enzyme": "^2.9.1",
+    "eventsource-polyfill": "^0.9.6",
+    "exports-loader": "^0.6.4",
+    "file-loader": "^0.11.2",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.29.0",
+    "image-webpack-loader": "^3.3.1",
+    "imports-loader": "^0.7.1",
+    "jest-cli": "^20.0.4",
+    "loader-utils": "^1.1.0",
+    "ngrok": "^2.2.11",
+    "node-plop": "^0.7.0",
+    "node-sass": "^4.5.3",
+    "null-loader": "^0.1.1",
+    "offline-plugin": "^4.8.1",
+    "plop": "^1.8.0",
+    "react-addons-test-utils": "^15.6.0",
+    "rimraf": "^2.6.1",
+    "shelljs": "^0.7.8",
+    "sinon": "^2.3.5",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.0.0",
+    "webpack-dev-middleware": "^1.11.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  }
+}
