@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should render the page 1`] = `
+<footer>
+  <h1>
+    Just a footer...
+  </h1>
+</footer>
+`;

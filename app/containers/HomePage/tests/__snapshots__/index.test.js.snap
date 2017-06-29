@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> should render the page 1`] = `
+<div>
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <span>
+    Hello 
+    
+  </span>
+</div>
+`;
+
+exports[`<HomePage /> should set state of input based on input value entered 1`] = `
+<div>
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <span>
+    Hello 
+    
+  </span>
+</div>
+`;
+
+exports[`<HomePage /> should set state of input based on input value entered 2`] = `
+<div>
+  <input
+    onChange={[Function]}
+    type="text"
+    value="test value"
+  />
+  <span>
+    Hello 
+    test value
+  </span>
+</div>
+`;

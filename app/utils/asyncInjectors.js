@@ -23,7 +23,7 @@ export function checkStore (store) {
   )
 }
 
-//Inject an async loaded reducer
+// Inject an async loaded reducer
 export function injectAsyncReducer (store, isValid) {
   return function injectAsyncReducer (name, asyncReducer) {
     if (!isValid) checkStore(store)

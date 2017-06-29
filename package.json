@@ -6,20 +6,30 @@
   "author": "Bill Hefty",
   "license": "MIT",
   "scripts": {
-    "lint": "./node_modules/.bin/standard --verbose | snazzy",
+    "lint": "npm run lint:js",
+    "lint:js": "./node_modules/.bin/standard --verbose | snazzy",
+    "lint:staged": "lint-staged",
     "lint-fix": "./node_modules/.bin/standard --fix",
     "postinstall": "npm run build:dll",
     "prebuild": "npm run build:clean",
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color -p --progress",
     "build:clean": "npm run test:clean && rimraf .build",
     "build:dll": "node ./internals/scripts/dependencies.js",
-    "dev": "webpack-dev-server --env.dev",
+    "start": "cross-env NODE_ENV=development node server",
+    "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
+    "start:production": "npm run test && npm run build && npm run start:prod",
+    "start:prod": "corss-env NODE_ENV=production node server",
     "production": "webpack -p --env.production",
+    "pretest": "npm run test:clean && npm run lint",
     "test:clean": "rimraf ./coverage",
     "test": "cross-env NODE_ENV=test jest --coverage",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
+  "lint-staged": {
+    "*.js": "lint:js"
+  },
+  "pre-commit": "lint:staged",
   "babel": {
     "presets": [
       [
@@ -152,6 +162,7 @@
     "image-webpack-loader": "^3.3.1",
     "imports-loader": "^0.7.1",
     "jest-cli": "^20.0.4",
+    "lint-staged": "^4.0.0",
     "loader-utils": "^1.1.0",
     "ngrok": "^2.2.11",
     "node-plop": "^0.7.0",
@@ -159,7 +170,9 @@
     "null-loader": "^0.1.1",
     "offline-plugin": "^4.8.1",
     "plop": "^1.8.0",
+    "pre-commit": "^1.2.2",
     "react-addons-test-utils": "^15.6.0",
+    "react-test-renderer": "^15.6.1",
     "rimraf": "^2.6.1",
     "shelljs": "^0.7.8",
     "sinon": "^2.3.5",

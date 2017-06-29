@@ -21,8 +21,8 @@ export default function configureStore (initialState = {}, history) {
   ]
 
   // If Redux Devtools Extension is installed uuse it, otherwise use Redux compose
-  /* eslint-disable operator-linebreak */
-  const composeEnhancer =
+  /* eslint-disable no-underscore-dangle, operator-linebreak */
+  const composeEnhancers =
     process.env.NODE_ENV !== 'production' &&
     typeof window === 'object' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
@@ -32,7 +32,7 @@ export default function configureStore (initialState = {}, history) {
   const store = createStore(
     createReducer(),
     fromJS(initialState),
-    composeEnhancer(...enhancers)
+    composeEnhancers(...enhancers)
   )
 
   // Extensions
@@ -40,6 +40,7 @@ export default function configureStore (initialState = {}, history) {
   store.asyncReducers = {} // Async reducer registry
 
   // Make reducers hot reloadable
+  /* istanbul ignore next */
   if (module.hot) {
     module.hot.accept('./reducers', () => {
       import('./reducers').then(reducerModule => {

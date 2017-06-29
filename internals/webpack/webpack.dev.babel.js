@@ -66,7 +66,7 @@ module.exports = require('./webpack.base.babel')({
  */
 function dependencyHandlers () {
   // Don't do anything during the DLL Build step
-  if (process.env.BUILDING_DLL) { return []; }
+  if (process.env.BUILDING_DLL) { return [] }
 
   // If the package.json does not have a dllPlugin property, use the CommonsChunkPlugin
   if (!dllPlugin) {
@@ -97,7 +97,7 @@ function dependencyHandlers () {
     return [
       new webpack.DllReferencePlugin({
         context: process.cwd(),
-        manifest: require(manifestPath), // eslint-disable-line global-require
+        manifest: require(manifestPath) // eslint-disable-line global-require
       })
     ]
   }

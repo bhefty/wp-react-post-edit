@@ -34,7 +34,7 @@ const ReactBoilerplate = {
       path: resolve('../node_modules/react-redux-boilerplate-dlls')
     },
 
-    entry(pkg) {
+    entry (pkg) {
       const dependencyNames = Object.keys(pkg.dependencies)
       const exclude = pkg.dllPlugin.exclude || ReactBoilerplate.dllPlugin.defaults.exclude
       const include = pkg.dllPlugin.include || ReactBoilerplate.dllPlugin.defaults.include
