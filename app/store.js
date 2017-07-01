@@ -10,7 +10,8 @@ import createReducer from './reducers'
 
 const sagaMiddleware = createSagaMiddleware()
 
-export default function configureStore (initialState = {}, history) {
+/* istanbul ignore next */
+const configureStore = (initialState = {}, history) => {
   const middlewares = [
     sagaMiddleware,
     routerMiddleware(history)
@@ -22,6 +23,7 @@ export default function configureStore (initialState = {}, history) {
 
   // If Redux Devtools Extension is installed uuse it, otherwise use Redux compose
   /* eslint-disable no-underscore-dangle, operator-linebreak */
+  /* istanbul ignore next */
   const composeEnhancers =
     process.env.NODE_ENV !== 'production' &&
     typeof window === 'object' &&
@@ -54,3 +56,5 @@ export default function configureStore (initialState = {}, history) {
 
   return store
 }
+
+export default configureStore
