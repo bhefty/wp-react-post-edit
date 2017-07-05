@@ -4,6 +4,10 @@
   "description": "Boilerplate for React, Redux, and Webpack",
   "main": "index.js",
   "author": "Bill Hefty",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bhefty/react-redux-boilerplate"
+  },
   "license": "MIT",
   "scripts": {
     "lint": "npm run lint:js",
