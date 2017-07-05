@@ -23,7 +23,7 @@ const ReactBoilerplate = {
         'express',
         'ip',
         'minimist',
-        'sanatize.css'
+        'sanitize.css'
       ],
 
       // Specifiy additional dependencies here. We include core-js and lodash
