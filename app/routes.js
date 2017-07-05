@@ -8,16 +8,32 @@
 import React, { Component } from 'react'
 import { ConnectedRouter as Router } from 'react-router-redux'
 import { Route, Switch } from 'react-router-dom'
-import { getAsyncInjectors } from 'utils/asyncInjectors'
+import { getAsyncInjectors } from './utils/asyncInjectors'
 import App from 'containers/App'
 
-const asyncComponent = (getComponent) => {
+const asyncComponent = (reducerData, getComponent) => {
   return class AsyncComponent extends Component {
     static Component = null
     state = { Component: AsyncComponent.Component }
 
     componentWillMount = () => {
       if (!this.state.Component) {
+        if (reducerData) {
+          const injectReducer = reducerData.injectReducer
+          const reducerName = reducerData.name
+          const getReducer = reducerData.reducer
+
+          if (injectReducer) {
+            getReducer().then((reducer) => injectReducer(reducerName, reducer.default))
+          }
+
+          const injectSagas = reducerData.injectSagas || false
+          const getSagas = reducerData.saga || false
+
+          if (injectSagas) {
+            getSagas().then((sagas) => injectSagas(sagas.default))
+          }
+        }
         getComponent().then(({ default: Component }) => {
           AsyncComponent.Component = Component
           this.setState({ Component })
@@ -35,26 +51,9 @@ const asyncComponent = (getComponent) => {
   }
 }
 
-const HomePage = asyncComponent(() => import('containers/HomePage'))
 const NotFoundPage = asyncComponent(() => import('containers/NotFoundPage'))
 
 const NextPage = () => <h2>Next Page</h2>
-
-const routes = [
-  {
-    exact: true,
-    path: '/',
-    component: HomePage
-  },
-  {
-    path: '/next',
-    component: NextPage
-  },
-  {
-    path: '*',
-    component: NotFoundPage
-  }
-]
 
 const RouteWithSubRoutes = (route) => (
   <Route exact={route.exact} path={route.path} render={props => (
@@ -64,6 +63,31 @@ const RouteWithSubRoutes = (route) => (
 
 const RouteConfig = (props) => {
   const { injectReducer, injectSagas } = getAsyncInjectors(props.store) // eslint-disable-line no-unused-vars
+
+  const HomePage = asyncComponent(
+    {
+      injectReducer,
+      name: 'home',
+      reducer: () => import('containers/HomePage/reducer')
+    },
+    () => import('containers/HomePage')
+  )
+
+  const routes = [
+    {
+      exact: true,
+      path: '/',
+      component: HomePage
+    },
+    {
+      path: '/next',
+      component: NextPage
+    },
+    {
+      path: '*',
+      component: NotFoundPage
+    }
+  ]
 
   return (
     <Router history={props.history}>

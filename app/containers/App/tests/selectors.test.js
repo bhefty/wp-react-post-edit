@@ -1,29 +1,16 @@
 /* eslint-env jest */
 import { fromJS } from 'immutable'
 
-import { makeSelectLocationState } from 'containers/App/selectors'
+import {
+  selectGlobal
+} from '../selectors'
 
-describe('makeSelectLocationState', () => {
-  it('should select the route as a plain JS object', () => {
-    const route = fromJS({
-      locationBeforeTransitions: null
-    })
+describe('selectGlobal', () => {
+  it('should select the global state', () => {
+    const globalState = fromJS({})
     const mockedState = fromJS({
-      route
+      global: globalState
     })
-    expect(makeSelectLocationState()(mockedState)).toEqual(route.toJS())
-  })
-
-  it('should return cached js routeState for same conccurent calls', () => {
-    const route = fromJS({
-      locationBeforeTransitions: null
-    })
-    const mockedState = fromJS({
-      route
-    })
-    const selectLocationState = makeSelectLocationState()
-
-    const firstRouteStateJS = selectLocationState(mockedState)
-    expect(selectLocationState(mockedState)).toBe(firstRouteStateJS)
+    expect(selectGlobal(mockedState)).toEqual(globalState)
   })
 })

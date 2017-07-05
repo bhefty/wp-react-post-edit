@@ -2,42 +2,23 @@
 
 exports[`<HomePage /> should render the page 1`] = `
 <div>
-  <input
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <span>
-    Hello 
-    
-  </span>
-</div>
-`;
-
-exports[`<HomePage /> should set state of input based on input value entered 1`] = `
-<div>
-  <input
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <span>
-    Hello 
-    
-  </span>
-</div>
-`;
-
-exports[`<HomePage /> should set state of input based on input value entered 2`] = `
-<div>
-  <input
-    onChange={[Function]}
-    type="text"
-    value="test value"
-  />
-  <span>
-    Hello 
-    test value
-  </span>
+  <h1>
+    Welcome!
+  </h1>
+  Current counter value: 
+  <div>
+    <button
+      onClick={undefined}
+    >
+      Increment
+    </button>
+  </div>
+  <div>
+    <button
+      onClick={undefined}
+    >
+      Decrement
+    </button>
+  </div>
 </div>
 `;

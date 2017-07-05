@@ -5,7 +5,7 @@ const initialState = fromJS({
   count: 0
 })
 
-export const counterApp = (state = initialState, action) => {
+function homeReducer (state = initialState, action) {
   switch (action.type) {
     case types.INCREMENT:
       return state
@@ -17,3 +17,5 @@ export const counterApp = (state = initialState, action) => {
       return state
   }
 }
+
+export default homeReducer
