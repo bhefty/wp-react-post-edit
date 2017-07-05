@@ -40,12 +40,7 @@ const render = () => {
     document.getElementById('app')
   )
 }
-// render()
-if (module.hot) {
-  module.hot.accept('containers/App', () => {
-    render()
-  })
-}
+render()
 
 if (process.env.NODE_ENV === 'production') {
   require('offline-plugin/runtime').install() // eslint-disable-line global-require
