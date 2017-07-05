@@ -10,6 +10,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
+import 'sanitize.css/sanitize.css'
 
 // Load the favicon, the manifest.json file and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions, import/no-webpack-loader-syntax */
