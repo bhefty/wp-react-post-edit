@@ -2,13 +2,14 @@
  * app.js
  * This is the entry file for the application.
  */
+// Needed for redux-saga es6 generator support
+import 'babel-polyfill'
 
+// Import third party modules
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
-
-// import { makeSelectLocationState } from 'containers/App/selectors'
 
 // Load the favicon, the manifest.json file and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions, import/no-webpack-loader-syntax */
