@@ -6,7 +6,8 @@
  * https://gist.github.com/acdlite/a68433004f9d6b4cbc83b5cc3990c194
  */
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { ConnectedRouter as Router } from 'react-router-redux'
+import { Route, Switch } from 'react-router-dom'
 import { getAsyncInjectors } from 'utils/asyncInjectors'
 import App from 'containers/App'
 
