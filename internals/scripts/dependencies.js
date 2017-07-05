@@ -27,7 +27,7 @@ if (!exists(dllManifestPath)) {
   writeFile(
     dllManifestPath,
     JSON.stringify(defaults({
-      name: 'react-redux-boilerplate-dlls',
+      name: 'react-boilerplate-dlls',
       private: true,
       author: pkg.author,
       repository: pkg.repository,
@@ -38,4 +38,4 @@ if (!exists(dllManifestPath)) {
 }
 
 // BUILDING_DLL env var is set to avoid confusing the dev environment
-exec('cross-env BUILDINGDLL=true webpack --display-chunks --color --config internals/webpack/webpack.dll.babel.js')
+exec('cross-env BUILDING_DLL=true webpack --display-chunks --color --config internals/webpack/webpack.dll.babel.js')

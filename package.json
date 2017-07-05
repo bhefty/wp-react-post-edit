@@ -18,8 +18,7 @@
     "start": "cross-env NODE_ENV=development node server",
     "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
     "start:production": "npm run test && npm run build && npm run start:prod",
-    "start:prod": "corss-env NODE_ENV=production node server",
-    "production": "webpack -p --env.production",
+    "start:prod": "cross-env NODE_ENV=production node server",
     "pretest": "npm run test:clean && npm run lint",
     "test:clean": "rimraf ./coverage",
     "test": "cross-env NODE_ENV=test jest --coverage",
@@ -63,7 +62,7 @@
     }
   },
   "dllPlugin": {
-    "path": "node_modules/react-redux-boilerplate-dlls",
+    "path": "node_modules/react-boilerplate-dlls",
     "exclude": [
       "chalk",
       "compression",
@@ -116,6 +115,7 @@
     "cross-env": "^5.0.1",
     "express": "^4.15.3",
     "fontfaceobserver": "^2.0.13",
+    "history": "^4.6.3",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "ip": "^1.1.5",
@@ -127,7 +127,7 @@
     "react-helmet": "^5.1.3",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
-    "react-router-redux": "^4.0.8",
+    "react-router-redux": "next",
     "redux": "^3.7.1",
     "redux-immutable": "^4.0.0",
     "redux-saga": "^0.15.4",

@@ -27,11 +27,11 @@ const ReactBoilerplate = {
       ],
 
       // Specifiy additional dependencies here. We include core-js and lodash
-      // since a lot of our dependences use them and they get pickedu p by webpack
+      // since a lot of our dependences use them and they get picked up by webpack
       include: ['core-js', 'eventsource-polyfill', 'babel-polyfill', 'lodash'],
 
       // Path where the DLL manifest and bundle will be built
-      path: resolve('../node_modules/react-redux-boilerplate-dlls')
+      path: resolve('../node_modules/react-boilerplate-dlls')
     },
 
     entry (pkg) {
