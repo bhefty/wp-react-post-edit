@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
 
 module.exports = require('./webpack.base.babel')({
-  // Skipp hot-loading in production
+  // Skip hot-loading in production
   entry: [
     path.join(process.cwd(), 'app/app.js')
   ],
@@ -19,7 +19,7 @@ module.exports = require('./webpack.base.babel')({
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       children: true,
-      miniChunks: 2,
+      minChunks: 2,
       async: true
     }),
 
@@ -29,7 +29,7 @@ module.exports = require('./webpack.base.babel')({
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        removeReduantAttributes: true,
+        removeRedundantAttributes: true,
         useShortDoctype: true,
         removeEmptyAttributes: true,
         removeStyleLinkTypeAttributes: true,
