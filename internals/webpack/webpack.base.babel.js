@@ -33,7 +33,7 @@ module.exports = (options) => ({
             progressive: true,
             optimizationLevel: 7,
             interlaced: false,
-            pngqaunt: {
+            pngquant: {
               quality: '65-90',
               speed: 4
             }
