@@ -11,7 +11,7 @@ import createReducer from './reducers'
 const sagaMiddleware = createSagaMiddleware()
 
 /* istanbul ignore next */
-export default function configureStore (initialState = {}, history) {
+const configureStore = (initialState = {}, history) => {
   const middlewares = [
     sagaMiddleware,
     routerMiddleware(history)
@@ -56,3 +56,5 @@ export default function configureStore (initialState = {}, history) {
 
   return store
 }
+
+export default configureStore

@@ -51,10 +51,6 @@ const asyncComponent = (reducerData, getComponent) => {
   }
 }
 
-const NotFoundPage = asyncComponent(() => import('containers/NotFoundPage'))
-
-const NextPage = () => <h2>Next Page</h2>
-
 const RouteWithSubRoutes = (route) => (
   <Route exact={route.exact} path={route.path} render={props => (
     <route.component {...props} routes={route.routes} />
@@ -72,6 +68,13 @@ const RouteConfig = (props) => {
     },
     () => import('containers/HomePage')
   )
+
+  const NotFoundPage = asyncComponent(
+    null,
+    () => import('containers/NotFoundPage')
+  )
+
+  const NextPage = () => <h2>Next page</h2>
 
   const routes = [
     {
