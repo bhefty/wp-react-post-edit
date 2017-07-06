@@ -73,15 +73,15 @@ module.exports = {
       data.useSagas = sagasExists(data.component) // eslint-disable-line no-param-reassign
       actions.push({
         type: 'modify',
-        path: '../../app/routes.js',
-        pattern: /(\n\s{0,}const NotFoundPage)/g,
+        path: '../../app/routeAsyncComponents.js',
+        pattern: /(\n\s{0,}NotFoundPage)/g,
         template: trimTemplateFile('routeAsyncWithReducer.hbs')
       })
     } else {
       actions.push({
         type: 'modify',
-        path: '../../app/routes.js',
-        pattern: /(\n\s{0,}const NotFoundPage)/g,
+        path: '../../app/routeAsyncComponents.js',
+        pattern: /(\n\s{0,}NotFoundPage)/g,
         template: trimTemplateFile('routeAsync.hbs')
       })
     }

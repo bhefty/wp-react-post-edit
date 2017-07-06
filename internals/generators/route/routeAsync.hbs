@@ -1,6 +1,4 @@
 
-
-  const {{ properCase component }} = asyncComponent(
-    null,
-    () => import('containers/{{ properCase component }}')
-  )$1
+    {{ properCase component }}: asyncComponent({
+      component: () => import('containers/{{ properCase component }}')
+    }),$1

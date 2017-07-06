@@ -1,13 +1,10 @@
 
-
-  const {{ properCase component }} = asyncComponent(
-    {
+    {{ properCase component }}: asyncComponent({
+      component: () => import('containers/{{ properCase component }}'),
       injectReducer,
       name: '{{ lowerCase component }}',
       reducer: () => import('containers/{{ properCase component }}/reducer'){{#if useSagas}},
       injectSagas,
       sagas: () => import('containers/{{ properCase component }}/sagas')
       {{/if}}
-    },
-    () => import('containers/{{ properCase component }}')
-  )$1
+    }),$1
