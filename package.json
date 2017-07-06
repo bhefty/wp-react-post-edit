@@ -196,6 +196,9 @@
     "webpack-dev-server": "^2.5.0"
   },
   "standard": {
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "env": {
+      "jest": true
+    }
   }
 }

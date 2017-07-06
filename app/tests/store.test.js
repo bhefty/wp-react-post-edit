@@ -1,4 +1,3 @@
-/* eslint-env jest */
 // Test store addons
 import { browserHistory } from 'react-router-redux'
 import configureStore from '../store'

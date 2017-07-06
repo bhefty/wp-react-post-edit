@@ -1,4 +1,3 @@
-/* eslint-env jest */
 // Test async injectors
 
 import { memoryHistory } from 'react-router'
