@@ -74,7 +74,7 @@ const RouteConfig = (props) => {
     () => import('containers/NotFoundPage')
   )
 
-  const NextPage = () => <h2>Next page</h2>
+  // const NextPage = () => <h2>Next page</h2>
 
   const routes = [
     {
@@ -84,7 +84,7 @@ const RouteConfig = (props) => {
     },
     {
       path: '/next',
-      component: NextPage
+      component: NotFoundPage
     },
     {
       path: '*',

@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import { createStructuredSelector } from 'reselect'
 import { increment, decrement } from './actions'
 import { makeSelectCount } from './selectors'
@@ -29,4 +28,4 @@ export function mapDispatchToProps (dispatch) {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage))
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
