@@ -2,51 +2,40 @@
  * These are the pages that you can navigate to.
  * They are all wrapped in the App component, which should contain the navbar/footer/etc
  *
- * Code splitting example from:
+ * Code splitting example inspired by:
  * https://gist.github.com/acdlite/a68433004f9d6b4cbc83b5cc3990c194
  */
 import React from 'react'
 import { ConnectedRouter as Router } from 'react-router-redux'
 import { Route, Switch } from 'react-router-dom'
-import { getAsyncInjectors } from './utils/asyncInjectors'
-import asyncComponent from './utils/asyncComponent'
 import App from 'containers/App'
-
-const RouteWithSubRoutes = (route) => (
-  <Route exact={route.exact} path={route.path} render={props => (
-    <route.component {...props} routes={route.routes} />
-  )} />
-)
+import appComponents from './routeAsyncComponents'
 
 const RouteConfig = (props) => {
-  const { injectReducer, injectSagas } = getAsyncInjectors(props.store) // eslint-disable-line no-unused-vars
+  // Get async components for routing
+  const components = appComponents(props.store)
 
-  const HomePage = asyncComponent(
-    {
-      injectReducer,
-      name: 'home',
-      reducer: () => import('containers/HomePage/reducer')
-    },
-    () => import('containers/HomePage')
+  // Return a Route component for Router
+  const RouteWithSubRoutes = (route) => (
+    <Route exact={route.exact} path={route.path} render={props => (
+      <route.component {...props} routes={route.routes} />
+    )} />
   )
 
-  const NotFoundPage = asyncComponent(
-    null,
-    () => import('containers/NotFoundPage')
-  )
-
+  // Define route paths
   const routes = [{
     exact: true,
     path: '/',
-    component: HomePage
+    component: components.HomePage
   }, {
     path: '/next',
-    component: NotFoundPage
+    component: components.NotFoundPage
   }, {
     path: '*',
-    component: NotFoundPage
+    component: components.NotFoundPage
   }]
 
+  // Return the configured Router
   return (
     <Router history={props.history}>
       <App>
