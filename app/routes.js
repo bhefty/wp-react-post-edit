@@ -28,7 +28,7 @@ const asyncComponent = (reducerData, getComponent) => {
           }
 
           const injectSagas = reducerData.injectSagas || false
-          const getSagas = reducerData.saga || false
+          const getSagas = reducerData.sagas || false
 
           if (injectSagas) {
             getSagas().then((sagas) => injectSagas(sagas.default))
@@ -74,23 +74,17 @@ const RouteConfig = (props) => {
     () => import('containers/NotFoundPage')
   )
 
-  // const NextPage = () => <h2>Next page</h2>
-
-  const routes = [
-    {
-      exact: true,
-      path: '/',
-      component: HomePage
-    },
-    {
-      path: '/next',
-      component: NotFoundPage
-    },
-    {
-      path: '*',
-      component: NotFoundPage
-    }
-  ]
+  const routes = [{
+    exact: true,
+    path: '/',
+    component: HomePage
+  }, {
+    path: '/next',
+    component: NotFoundPage
+  }, {
+    path: '*',
+    component: NotFoundPage
+  }]
 
   return (
     <Router history={props.history}>
