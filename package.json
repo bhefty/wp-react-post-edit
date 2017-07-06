@@ -93,7 +93,9 @@
       "!app/**/*.test.{js,jsx}",
       "!app/*/RbGenerated*/*.{js,jsx}",
       "!app/app.js",
-      "!app/routes.js"
+      "!app/routes.js",
+      "!app/routeAsyncComponents.js",
+      "!app/utils/asyncComponent.js"
     ],
     "coverageThreshold": {
       "global": {
