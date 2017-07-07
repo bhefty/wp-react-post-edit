@@ -6,7 +6,7 @@ import Circle from '../Circle'
 describe('<Circle />', () => {
   it('should render a <div> tag', () => {
     const renderedComponent = mount(<Circle />)
-    expect(renderedComponent.find('div')).toEqual(1)
+    expect(renderedComponent.find('div').length).toEqual(1)
   })
 
   it('should have a className attribute', () => {
