@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 
+import withProgressBar from 'components/ProgressBar'
+
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
   margin: 0 auto;
@@ -38,4 +40,4 @@ export class App extends PureComponent {
   }
 }
 
-export default withRouter(App)
+export default withRouter(withProgressBar(App))
