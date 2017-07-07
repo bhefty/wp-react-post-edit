@@ -28,9 +28,6 @@ const RouteConfig = (props) => {
     path: '/',
     component: components.HomePage
   }, {
-    path: '/next',
-    component: components.NotFoundPage
-  }, {
     path: '*',
     component: components.NotFoundPage
   }]

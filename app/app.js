@@ -10,6 +10,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
+import FontFaceObserver from 'fontfaceobserver'
 import 'sanitize.css/sanitize.css'
 
 // Load the favicon, the manifest.json file and the .htaccess file
@@ -26,6 +27,16 @@ import './global-styles'
 
 // Import routes
 import RouteConfig from './routes'
+
+// Observer loading of Open Sans
+const openSansObserver = new FontFaceObserver('Open Sans', {})
+
+// When Open Sans is loaded, add a front-family using Open Sans to the body
+openSansObserver.load().then(() => {
+  document.body.classList.add('fontLoaded')
+}, () => {
+  document.body.classList.remove('fontLoaded')
+})
 
 // Create redux store with history
 const history = createHistory()
