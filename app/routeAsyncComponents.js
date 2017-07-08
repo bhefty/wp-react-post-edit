@@ -12,7 +12,9 @@ function appComponents (store) {
       component: () => import('containers/HomePage'),
       injectReducer,
       name: 'home',
-      reducer: () => import('containers/HomePage/reducer')
+      reducer: () => import('containers/HomePage/reducer'),
+      injectSagas,
+      sagas: () => import('containers/HomePage/sagas')
     }),
     NotFoundPage: asyncComponent({
       component: () => import('containers/NotFoundPage')
