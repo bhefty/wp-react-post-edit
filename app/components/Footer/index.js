@@ -1,11 +1,18 @@
 import React, { PureComponent } from 'react'
 
-export default class Footer extends PureComponent {
+import A from 'components/A'
+import Wrapper from './Wrapper'
+
+class Footer extends PureComponent {
   render () {
     return (
-      <footer>
-        <h1>Just a footer...</h1>
-      </footer>
+      <Wrapper>
+        <section>
+          Made by <A href='https://billhefty.com/' target='_blank'>Bill Hefty</A>
+        </section>
+      </Wrapper>
     )
   }
 }
+
+export default Footer

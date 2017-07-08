@@ -2,8 +2,10 @@ import React, { PureComponent } from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 import withProgressBar from 'components/ProgressBar'
 
 const AppWrapper = styled.div`
@@ -30,11 +32,9 @@ export class App extends PureComponent {
             { name: 'description', content: 'A React.js Boierlplate application with Redux' }
           ]}
         />
-        <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/next'>Next</Link></li>
-        </ul>
+        <Header />
         {React.Children.toArray(this.props.children)}
+        <Footer />
       </AppWrapper>
     )
   }

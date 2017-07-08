@@ -1,13 +1,16 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
 
+import A from 'components/A'
 import Footer from '../index'
 
 describe('<Footer />', () => {
-  it('should render the page', () => {
-    const tree = renderer.create(
-      <Footer />
-    ).toJSON()
-    expect(tree).toMatchSnapshot()
+  it('should render the credits', () => {
+    const renderedComponent = shallow(<Footer />)
+    expect(renderedComponent.contains(
+      <section>
+        Made by <A href='https://billhefty.com/' target='_blank'>Bill Hefty</A>
+      </section>
+    )).toBe(true)
   })
 })

@@ -30,7 +30,7 @@ export function * translationData () {
   // It returns task descriptor so we can continue execution
   const watcher = yield takeLatest(LOAD_TRANSLATION, getTranslation)
 
-  // Suspend execution until locaiton changes
+  // Suspend execution until location changes
   yield take(LOCATION_CHANGE)
   yield cancel(watcher)
 }

@@ -1,13 +1,13 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
 
 import Header from '../index'
 
 describe('<Header />', () => {
-  it('should render the page', () => {
-    const tree = renderer.create(
+  it('should render a header', () => {
+    const renderedComponent = shallow(
       <Header />
-    ).toJSON()
-    expect(tree).toMatchSnapshot()
+    )
+    expect(renderedComponent.find('header').length).toEqual(1)
   })
 })

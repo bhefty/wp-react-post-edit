@@ -1,11 +1,23 @@
 import React, { PureComponent } from 'react'
 
-export default class Header extends PureComponent {
+import NavBar from './NavBar'
+import HeaderLink from './HeaderLink'
+
+class Header extends PureComponent {
   render () {
     return (
       <header>
-        <h1>Simple React Page</h1>
+        <NavBar>
+          <HeaderLink to='/'>
+            Home
+          </HeaderLink>
+          <HeaderLink to='/about'>
+            About
+          </HeaderLink>
+        </NavBar>
       </header>
     )
   }
 }
+
+export default Header
