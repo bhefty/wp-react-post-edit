@@ -22,10 +22,27 @@ const makeSelectTranslation = () => createSelector(
   (globalState) => globalState.getIn(['translationData', 'translation'])
 )
 
+const makeSelectLocationState = () => {
+  let prevRoutingState
+  let prevRoutingStateJS
+
+  return (state) => {
+    const routingState = state.get('route')
+
+    if (!routingState.equals(prevRoutingState)) {
+      prevRoutingState = routingState
+      prevRoutingStateJS = routingState.toJS()
+    }
+
+    return prevRoutingStateJS
+  }
+}
+
 export {
   selectGlobal,
   makeSelectCurrentText,
   makeSelectLoading,
   makeSelectError,
-  makeSelectTranslation
+  makeSelectTranslation,
+  makeSelectLocationState
 }

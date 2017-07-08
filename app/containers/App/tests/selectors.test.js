@@ -5,7 +5,8 @@ import {
   makeSelectCurrentText,
   makeSelectLoading,
   makeSelectError,
-  makeSelectTranslation
+  makeSelectTranslation,
+  makeSelectLocationState
 } from '../selectors'
 
 describe('selectGlobal', () => {
@@ -68,4 +69,30 @@ describe('makeSelectTranslation', () => {
     }
   })
   expect(translationSelector(mockedState)).toEqual(translation)
+})
+
+describe('makeSelectLocationState', () => {
+  const locationStateSelector = makeSelectLocationState()
+  it('should select the route as a plain JS object', () => {
+    const route = fromJS({
+      locationBeforeTransitions: null
+    })
+    const mockedState = fromJS({
+      route
+    })
+    expect(locationStateSelector(mockedState)).toEqual(route.toJS())
+  })
+
+  it('should set the prevRoutingState when changed', () => {
+    const route = fromJS({
+      locationBeforeTransitions: null
+    })
+    const mockedState = fromJS({
+      route
+    })
+    expect(locationStateSelector(mockedState)).toEqual(route.toJS())
+
+    route.set('locationBeforeTransitions', '/about')
+    expect(locationStateSelector(mockedState)).toEqual(route.toJS())
+  })
 })

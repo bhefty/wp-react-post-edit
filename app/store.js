@@ -21,7 +21,7 @@ const configureStore = (initialState = {}, history) => {
     applyMiddleware(...middlewares)
   ]
 
-  // If Redux Devtools Extension is installed uuse it, otherwise use Redux compose
+  // If Redux Devtools Extension is installed use it, otherwise use Redux compose
   /* eslint-disable no-underscore-dangle, operator-linebreak */
   /* istanbul ignore next */
   const composeEnhancers =
