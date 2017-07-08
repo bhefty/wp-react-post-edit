@@ -3,6 +3,7 @@ import { fromJS } from 'immutable'
 import homeReducer from '../reducer'
 
 import {
+  changeText,
   increment,
   decrement
 } from '../actions'
@@ -11,6 +12,7 @@ describe('homeReducer', () => {
   let state
   beforeEach(() => {
     state = fromJS({
+      text: '',
       count: 0
     })
   })
@@ -18,6 +20,12 @@ describe('homeReducer', () => {
   it('should return the initial state', () => {
     const expectedResult = state
     expect(homeReducer(undefined, {})).toEqual(expectedResult)
+  })
+
+  it('should handle the changeText action correctly', () => {
+    const fixture = 'we will translate this'
+    const expectedResult = state.set('text', fixture)
+    expect(homeReducer(state, changeText(fixture))).toEqual(expectedResult)
   })
 
   it('should handle the increment action correctly', () => {

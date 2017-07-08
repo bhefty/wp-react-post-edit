@@ -2,6 +2,7 @@ import { fromJS } from 'immutable'
 
 import {
   selectHome,
+  makeSelectText,
   makeSelectCount
 } from '../selectors'
 
@@ -14,6 +15,19 @@ describe('selectHome', () => {
       home: homeState
     })
     expect(selectHome(mockedState)).toEqual(homeState)
+  })
+})
+
+describe('makeSelectText', () => {
+  const textSelector = makeSelectText()
+  it('should select the text', () => {
+    const text = 'we will translate this'
+    const mockedState = fromJS({
+      home: {
+        text
+      }
+    })
+    expect(textSelector(mockedState)).toEqual(text)
   })
 })
 

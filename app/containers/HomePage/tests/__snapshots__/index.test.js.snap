@@ -1,24 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HomePage /> should render the page 1`] = `
-<div>
-  <h1>
-    Welcome!
-  </h1>
-  Current counter value: 
+<article>
   <div>
-    <button
-      onClick={undefined}
+    <section
+      className="sc-bxivhb EYjjH sc-htpNat kCBzcP"
     >
-      Increment
-    </button>
+      <h2
+        className="sc-bwzfXH hxOzfd"
+      >
+        Start your project right away!
+      </h2>
+      <p>
+        A highly scalable, offline-first foundation based on the popular react-boilerplate.
+      </p>
+    </section>
+    <section
+      className="sc-htpNat kCBzcP"
+    >
+      <h2
+        className="sc-bwzfXH hxOzfd"
+      >
+        Try me!
+      </h2>
+      <form
+        className="sc-ifAKCX kVGuCC"
+        onSubmit={undefined}
+      >
+        <label
+          htmlFor="text"
+        >
+          Enter some text to see it translated into Yoda-Speak
+          <input
+            className="sc-EHOje bykDHf"
+            id="text"
+            onChange={undefined}
+            placeholder="You can use this boilerplate to get started right away!"
+            type="text"
+            value={undefined}
+          />
+        </label>
+      </form>
+      <p>
+        Something went wrong, please try again!
+      </p>
+    </section>
   </div>
   <div>
-    <button
-      onClick={undefined}
-    >
-      Decrement
-    </button>
+    <h1>
+      Counter Test!
+    </h1>
+    Current counter value: 
+    <div>
+      <button
+        onClick={undefined}
+      >
+        Increment
+      </button>
+    </div>
+    <div>
+      <button
+        onClick={undefined}
+      >
+        Decrement
+      </button>
+    </div>
   </div>
-</div>
+</article>
 `;
