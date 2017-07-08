@@ -1,6 +1,6 @@
 // Gets Yoda-Speak translation of text from MaShape
 
-import { take, call, put, select, cancel, takeLatest } from 'redux-saga/effects'
+import { take, call, put, select, takeLatest } from 'redux-saga/effects'
 import { LOCATION_CHANGE } from 'react-router-redux'
 import { LOAD_TRANSLATION } from 'containers/App/constants'
 import { translationLoaded, translationLoadingError } from 'containers/App/actions'
@@ -28,11 +28,11 @@ export function * translationData () {
   // Watches for LOAD_TRANSLATION actions and calls getTranslation when one comes in.
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor so we can continue execution
-  const watcher = yield takeLatest(LOAD_TRANSLATION, getTranslation)
+  yield takeLatest(LOAD_TRANSLATION, getTranslation)
 
   // Suspend execution until location changes
   yield take(LOCATION_CHANGE)
-  yield cancel(watcher)
+  // yield cancel(watcher)
 }
 
 // Bootstrap sagas

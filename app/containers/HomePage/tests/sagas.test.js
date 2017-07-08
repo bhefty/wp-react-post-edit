@@ -1,4 +1,4 @@
-import { cancel, take, put, takeLatest } from 'redux-saga/effects'
+import { take, put, takeLatest } from 'redux-saga/effects'
 import { createMockTask } from 'redux-saga/lib/utils'
 
 import { LOCATION_CHANGE } from 'react-router-redux'
@@ -53,10 +53,5 @@ describe('translationData Saga', () => {
   it('should yield until LOCATION_CHANGE action', () => {
     const takeDescriptor = translationDataSaga.next(mockedTask).value
     expect(takeDescriptor).toEqual(take(LOCATION_CHANGE))
-  })
-
-  it('should cancel the forked task when LOCATION_CHANGE happens', () => {
-    const cancelDescriptor = translationDataSaga.next().value
-    expect(cancelDescriptor).toEqual(cancel(mockedTask))
   })
 })
