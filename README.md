@@ -6,13 +6,21 @@
 
 <div align='center'>
 <!-- Build status -->
-[![CircleCI](https://circleci.com/gh/bhefty/react-redux-boilerplate.svg?style=shield)](https://circleci.com/gh/bhefty/react-redux-boilerplate)
+<a href='https://circleci.com/gh/bhefty/react-redux-boilerplate' target='_blank'>
+  <img src='https://circleci.com/gh/bhefty/react-redux-boilerplate.svg?style=shield' alt='Dependency Status' />
+</a>
 <!-- Test coverage -->
-[![Coverage Status](https://coveralls.io/repos/github/bhefty/react-redux-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/bhefty/react-redux-boilerplate?branch=master)
+<a href='https://coveralls.io/github/bhefty/react-redux-boilerplate?branch=master' target='_blank'>
+  <img src='https://coveralls.io/repos/github/bhefty/react-redux-boilerplate/badge.svg?branch=master' alt='Dependency Status' />
+</a>
 <!-- depedency status -->
-[![dependencies Status](https://david-dm.org/bhefty/react-redux-boilerplate/status.svg)](https://david-dm.org/bhefty/react-redux-boilerplate)
+<a href='https://david-dm.org/bhefty/react-redux-boilerplate' target='_blank'>
+  <img src='https://david-dm.org/bhefty/react-redux-boilerplate/status.svg' alt='Dependency Status' />
+</a>
 <!-- devDepedency status -->
-[![devDependencies Status](https://david-dm.org/bhefty/react-redux-boilerplate/dev-status.svg)](https://david-dm.org/bhefty/react-redux-boilerplate?type=dev)
+<a href='https://david-dm.org/bhefty/react-redux-boilerplate?type=dev' target='_blank'>
+  <img src='https://david-dm.org/bhefty/react-redux-boilerplate/dev-status.svg' alt='Dependency Status' />
+</a>
 </div>
 
 ## WORK IN PROGRESS
