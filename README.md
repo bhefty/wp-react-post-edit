@@ -1,5 +1,5 @@
 <!-- Build status -->
-[![CircleCI](https://circleci.com/gh/bhefty/react-redux-boilerplate.svg?style=svg)](https://circleci.com/gh/bhefty/react-redux-boilerplate)
+[![CircleCI](https://circleci.com/gh/bhefty/react-redux-boilerplate.svg?style=shield)](https://circleci.com/gh/bhefty/react-redux-boilerplate)
 <!-- Test coverage -->
 [![Coverage Status](https://coveralls.io/repos/github/bhefty/react-redux-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/bhefty/react-redux-boilerplate?branch=master)
 <!-- depedency status -->
