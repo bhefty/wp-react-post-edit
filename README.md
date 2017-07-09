@@ -82,8 +82,8 @@ and adapting it to suit my needs. The concepts of this boilerplate are advanced 
 
 1. Run `heroku create [your app name]` to initialize the Heroku app.
 2. *Optional:* A `Procfile` with the following line: `web: npm run start:prod` has already been created. Change this if needed.
-3. Install the Node.js buildpack for the Heroku app by running `heroku buildpacks:set https://github.com/heroku/heroku-buildpack-nodejs#v91 -a [your app name]`.
-Make sure to replace `#91` with the latest buildpack, found <a href='https://github.com/heroku/heroku-buildpack-nodejs/releases'>here</a>.
+3. Install the Node.js buildpack for the Heroku app by running `heroku buildpacks:set https://github.com/heroku/heroku-buildpack-nodejs#v106 -a [your app name]`.
+Make sure to replace `#106` with the latest buildpack, found <a href='https://github.com/heroku/heroku-buildpack-nodejs/releases'>here</a>.
 4. *Optional:* A `"heroku-postbuild": "npm run build"` and `"prebuild": "npm run build:clean"` scripts have already been added to `package.json`. This will avoide having Heroku attempt
 to run Jest tests (which are unsupported with this buildpack). Change this if needed.
 5. Run `heroku config:set NPM_CONFIG_PRODUCTION=false` so that Heroku can comile the npm modules included in `devDependencies` (since some are required for build process).
