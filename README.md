@@ -67,13 +67,30 @@ Additional features:
 
 ## Quick start
 
-1. Clone repo using `git clone --depth=1 https://github.com/bhefty/react-redux-boilerplate.git YOUR_APP_NAME`
-2. Move into the directory: `cd YOUR_APP_NAME`
+1. Clone repo using `git clone --depth=1 https://github.com/bhefty/react-redux-boilerplate.git [your app name]`
+2. Move into the directory: `cd [your app name]`
 3. Run `npm install` or `yarn install` to install dependencies
 4. Run `npm start` or `yarn start` to launch the app at `http://localhost:3000`
 
 > Please note that this boilerplate was built by going through every file, line by line, of <a href='https://github.com/react-boilerplate/react-boilerplate'>react-boilerplate</a>
 and adapting it to suit my needs. The concepts of this boilerplate are advanced and not easily approached by beginners.
+
+
+## Deployment
+
+### Heroku
+
+1. Run `heroku create [your app name]` to initialize the Heroku app.
+2. *Optional:* A `Procfile` with the following line: `web: npm run start:prod` has already been created. Change this if needed.
+3. Install the Node.js buildpack for the Heroku app by running `heroku buildpacks:set https://github.com/heroku/heroku-buildpack-nodejs#v91 -a [your app name]`.
+Make sure to replace `#91` with the latest buildpack, found <a href='https://github.com/heroku/heroku-buildpack-nodejs/releases'>here</a>.
+4. *Optional:* A `"heroku-postbuild": "npm run build"` and `"prebuild": "npm run build:clean"` scripts have already been added to `package.json`. This will avoide having Heroku attempt
+to run Jest tests (which are unsupported with this buildpack). Change this if needed.
+5. Run `heroku config:set NPM_CONFIG_PRODUCTION=false` so that Heroku can comile the npm modules included in `devDependencies` (since some are required for build process).
+6. Follow the standard Heroku deploy process:
+  1. `git add .`
+  2. `git commit -m 'Made some epic changes as per usual`
+  3. `git push heroku master`
 
 <hr />
 
