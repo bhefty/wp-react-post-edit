@@ -72,11 +72,10 @@ Additional features:
 3. Run `npm install` or `yarn install` to install dependencies
 4. Run `npm start` or `yarn start` to launch the app at `http://localhost:3000`
 
-> Please note that this boilerplate was built by going through every file, line by line, of [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+> Please note that this boilerplate was built by going through every file, line by line, of <a href='https://github.com/react-boilerplate/react-boilerplate'>react-boilerplate</a>
 and adapting it to suit my needs. The concepts of this boilerplate are advanced and not easily approached by beginners.
 
 <hr />
 
 ### Credit where credit is due:
-<br />
-Heavily inspired by [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+Heavily inspired by <a href='https://github.com/react-boilerplate/react-boilerplate'>React Boilerplate</a>
