@@ -5,3 +5,9 @@ machine:
 test:
   post:
     - npm run coveralls
+
+deployment:
+  prod:
+    branch: master
+    heroku:
+      appname: bhefty-boilerplate
