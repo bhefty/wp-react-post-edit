@@ -1,3 +1,7 @@
+<img src='https://raw.githubusercontent.com/bhefty/brand/master/assets/react_boilerplate_logo.png' alt='React Redux Boilerplate logo' align='center' />
+
+<br />
+
 <!-- Build status -->
 [![CircleCI](https://circleci.com/gh/bhefty/react-redux-boilerplate.svg?style=shield)](https://circleci.com/gh/bhefty/react-redux-boilerplate)
 <!-- Test coverage -->
