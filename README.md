@@ -94,5 +94,10 @@ to run Jest tests (which are unsupported with this buildpack). Change this if ne
 
 <hr />
 
+## More Help
+
+As mentioned before, this project was heavily influenced by the geniuses behind <a href='https://github.com/react-boilerplate/react-boilerplate'>react-boilerplate</a>.
+As such, much of my code is the same, with slight alterations to suit my needs. Additional documentation and help may be available <a href='https://github.com/react-boilerplate/react-boilerplate/tree/master/docs'>here</a>.
+
 ### Credit where credit is due:
 Heavily inspired by <a href='https://github.com/react-boilerplate/react-boilerplate'>React Boilerplate</a>
