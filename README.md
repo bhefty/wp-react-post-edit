@@ -1,7 +1,10 @@
-<img src='https://raw.githubusercontent.com/bhefty/brand/master/assets/react_boilerplate_logo.png' alt='React Redux Boilerplate logo' align='center' />
+<div align='center'>
+  <img src='https://raw.githubusercontent.com/bhefty/brand/master/assets/react_boilerplate_logo.png' alt='React Redux Boilerplate logo' />
+</div>
 
 <br />
 
+<div align='center'>
 <!-- Build status -->
 [![CircleCI](https://circleci.com/gh/bhefty/react-redux-boilerplate.svg?style=shield)](https://circleci.com/gh/bhefty/react-redux-boilerplate)
 <!-- Test coverage -->
@@ -10,6 +13,7 @@
 [![dependencies Status](https://david-dm.org/bhefty/react-redux-boilerplate/status.svg)](https://david-dm.org/bhefty/react-redux-boilerplate)
 <!-- devDepedency status -->
 [![devDependencies Status](https://david-dm.org/bhefty/react-redux-boilerplate/dev-status.svg)](https://david-dm.org/bhefty/react-redux-boilerplate?type=dev)
+</div>
 
 ## WORK IN PROGRESS
 Currently building this boilerplate out to suit my project needs.
