@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Boilerplate for React, Redux, and Webpack",
   "main": "index.js",
+  "engines": {
+    "npm": ">=3",
+    "node": ">=7"
+  },
   "author": "Bill Hefty",
   "repository": {
     "type": "git",
