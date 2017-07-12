@@ -30,7 +30,7 @@ describe('<TranslatedText />', () => {
         error={false}
       />
     )
-    expect(renderedComponent.contains(<p>{translation}</p>)).toEqual(true)
+    expect(renderedComponent.contains(<div className='card fluid'><div className='section darker'>{translation}</div></div>)).toEqual(true)
   })
 
   it('should not render anything if nothing interesting is provided', () => {
