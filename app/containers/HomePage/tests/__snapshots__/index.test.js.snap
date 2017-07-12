@@ -4,35 +4,36 @@ exports[`<HomePage /> should render the page 1`] = `
 <article>
   <div>
     <section
-      className="sc-bxivhb EYjjH sc-htpNat kCBzcP"
+      className="sc-ifAKCX fVKAHz sc-bxivhb cHYKiE"
     >
-      <h2
-        className="sc-bwzfXH hxOzfd"
+      <h1
+        className="sc-bwzfXH eyTSsB"
       >
         Start your project right away!
-      </h2>
+      </h1>
       <p>
         A highly scalable, offline-first foundation based on the popular react-boilerplate.
       </p>
     </section>
     <section
-      className="sc-htpNat kCBzcP"
+      className="sc-bxivhb cHYKiE"
     >
       <h2
-        className="sc-bwzfXH hxOzfd"
+        className="sc-htpNat fuQaVv"
       >
-        Try me!
+        Try me! Redux Saga API Call
       </h2>
       <form
-        className="sc-ifAKCX kVGuCC"
+        className="sc-EHOje kKIiKi"
         onSubmit={undefined}
       >
         <label
           htmlFor="text"
         >
-          Enter some text to see it translated into Yoda-Speak
+          Enter some text to see it translated into Yoda-Speak:
+          <br />
           <input
-            className="sc-EHOje bykDHf"
+            className="sc-bZQynM itcYPo"
             id="text"
             onChange={undefined}
             placeholder="You can use this boilerplate to get started right away!"
@@ -47,19 +48,21 @@ exports[`<HomePage /> should render the page 1`] = `
     </section>
   </div>
   <div>
-    <h1>
-      Counter Test!
-    </h1>
+    <h2
+      className="sc-htpNat fuQaVv"
+    >
+      Simple counter using Redux actions
+    </h2>
     Current counter value: 
     <div>
       <button
+        className="primary"
         onClick={undefined}
       >
         Increment
       </button>
-    </div>
-    <div>
       <button
+        className="secondary"
         onClick={undefined}
       >
         Decrement
