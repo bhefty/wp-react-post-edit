@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
 import { makeSelectTranslation, makeSelectLoading, makeSelectError } from 'containers/App/selectors'
+import H1 from 'components/H1'
 import H2 from 'components/H2'
 import TranslatedText from 'components/TranslatedText'
 import CenteredSection from './CenteredSection'
@@ -56,14 +57,15 @@ export class HomePage extends PureComponent {
         />
         <div>
           <CenteredSection>
-            <H2>Start your project right away!</H2>
+            <H1>Start your project right away!</H1>
             <p>A highly scalable, offline-first foundation based on the popular react-boilerplate.</p>
           </CenteredSection>
           <Section>
-            <H2>Try me!</H2>
+            <H2>Try me! Redux Saga API Call</H2>
             <Form onSubmit={this.props.onSubmitForm}>
               <label htmlFor='text'>
-                Enter some text to see it translated into Yoda-Speak
+                Enter some text to see it translated into Yoda-Speak:
+                <br />
                 <Input
                   id='text'
                   type='text'
@@ -77,10 +79,12 @@ export class HomePage extends PureComponent {
           </Section>
         </div>
         <div>
-          <h1>Counter Test!</h1>
+          <H2>Simple counter using Redux actions</H2>
           Current counter value: {this.props.count}
-          <div><button onClick={this.props.onIncrement}>Increment</button></div>
-          <div><button onClick={this.props.onDecrement}>Decrement</button></div>
+          <div>
+            <button className='primary' onClick={this.props.onIncrement}>Increment</button>
+            <button className='secondary' onClick={this.props.onDecrement}>Decrement</button>
+          </div>
         </div>
       </article>
     )

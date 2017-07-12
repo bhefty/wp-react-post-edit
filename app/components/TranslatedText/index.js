@@ -22,7 +22,7 @@ function TranslatedText ({ loading, error, translation }) {
   }
 
   if (translation !== false) {
-    return <p>{translation}</p>
+    return <div className='card fluid'><div className='section darker'>{translation}</div></div>
   }
 
   return null
