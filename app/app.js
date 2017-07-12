@@ -24,6 +24,7 @@ import configureStore from './store'
 
 // Import CSS reset and Global Styles
 import './global-styles'
+import 'mini.css/dist/mini-nord.min.css'
 
 // Import routes
 import RouteConfig from './routes'
