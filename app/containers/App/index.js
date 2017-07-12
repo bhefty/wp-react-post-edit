@@ -24,7 +24,7 @@ export class App extends PureComponent {
 
   render () {
     return (
-      <AppWrapper>
+      <div>
         <Helmet
           titleTemplate='%s - React.js Boilerplate'
           defaultTitle='React.js Boilerplate'
@@ -33,9 +33,11 @@ export class App extends PureComponent {
           ]}
         />
         <Header />
-        {React.Children.toArray(this.props.children)}
+        <AppWrapper>
+          {React.Children.toArray(this.props.children)}
+        </AppWrapper>
         <Footer />
-      </AppWrapper>
+      </div>
     )
   }
 }
