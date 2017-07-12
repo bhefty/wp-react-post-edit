@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 
+import SocialStrip from 'components/SocialStrip'
 import A from 'components/A'
 import Wrapper from './Wrapper'
 
@@ -8,8 +9,9 @@ class Footer extends PureComponent {
     return (
       <Wrapper>
         <section>
-          Made by <A href='https://billhefty.com/' target='_blank'>Bill Hefty</A>
+          made by <A href='https://billhefty.com/' target='_blank'>bill hefty</A> &copy; 2017
         </section>
+        <SocialStrip />
       </Wrapper>
     )
   }
