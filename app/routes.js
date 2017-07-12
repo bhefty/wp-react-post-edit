@@ -28,6 +28,9 @@ const RouteConfig = (props) => {
     path: '/',
     component: components.HomePage
   }, {
+    path: '/features',
+    component: components.FeaturePage
+  }, {
     path: '*',
     component: components.NotFoundPage
   }]

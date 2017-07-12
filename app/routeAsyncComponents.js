@@ -16,6 +16,9 @@ function appComponents (store) {
       injectSagas,
       sagas: () => import('containers/HomePage/sagas')
     }),
+    FeaturePage: asyncComponent({
+      component: () => import('containers/FeaturePage')
+    }),
     NotFoundPage: asyncComponent({
       component: () => import('containers/NotFoundPage')
     })
