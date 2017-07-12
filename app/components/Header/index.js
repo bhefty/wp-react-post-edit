@@ -15,7 +15,6 @@ class Header extends PureComponent {
             <Img src={logo} alt='React Redux Boilerplate Logo' />
             <span>React Redux Boilerplate</span>
           </Link>
-          <Link to='/about' className='button pull-right hidden-sm'>About</Link>
           <Link to='/features' className='button pull-right hidden-sm'>Features</Link>
         </header>
         <input id='navigation-toggle' type='checkbox' />
@@ -24,7 +23,6 @@ class Header extends PureComponent {
           <br />
           <Link to='/'>Home</Link>
           <Link to='/features'>Features</Link>
-          <Link to='/about'>About</Link>
         </nav>
       </Wrapper>
     )
