@@ -22,6 +22,10 @@
 <a href='https://david-dm.org/bhefty/react-redux-boilerplate?type=dev' target='_blank'>
   <img src='https://david-dm.org/bhefty/react-redux-boilerplate/dev-status.svg' alt='Dependency Status' />
 </a>
+<!-- Heroku Deployment status -->
+<a href='http://bhefty-boilerplate.herokuapp.com' target='_blank'>
+  <img src='http://heroku-badge.herokuapp.com/?app=bhefty-boilerplate&style=flat&svg=1' alt='Heroku Deployment Status' />
+</a>
 </div>
 
 <div align='center'>
