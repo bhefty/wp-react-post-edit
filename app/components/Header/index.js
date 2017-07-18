@@ -9,7 +9,7 @@ class Header extends PureComponent {
   render () {
     return (
       <Wrapper>
-        <header className='sticky'>
+        <header>
           <label className='drawer-toggle button' htmlFor='navigation-toggle' />
           <Link to='/' className='logo hidden-sm'>
             <Img src={logo} alt='React Redux Boilerplate Logo' />
