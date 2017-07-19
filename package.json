@@ -12,6 +12,7 @@
     "type": "git",
     "url": "https://github.com/bhefty/react-redux-boilerplate"
   },
+  "homepage": "http://bhefty-boilerplate.herokuapp.com",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
