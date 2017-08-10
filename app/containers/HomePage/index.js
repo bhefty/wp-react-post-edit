@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
@@ -49,12 +48,6 @@ export class HomePage extends PureComponent {
 
     return (
       <article>
-        <Helmet
-          title='Home Page'
-          meta={[
-            { name: 'description', content: 'A React.js Boilerplate application homepage' }
-          ]}
-        />
         <div>
           <CenteredSection>
             <H1>Start your project right away!</H1>

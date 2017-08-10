@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -22,18 +21,9 @@ export class App extends PureComponent {
 
   render () {
     return (
-      <div>
-        <Helmet
-          titleTemplate='%s - React.js Boilerplate'
-          defaultTitle='React.js Boilerplate'
-          meta={[
-            { name: 'description', content: 'A React.js Boierlplate application with Redux' }
-          ]}
-        />
-        <AppWrapper>
-          {React.Children.toArray(this.props.children)}
-        </AppWrapper>
-      </div>
+      <AppWrapper>
+        {React.Children.toArray(this.props.children)}
+      </AppWrapper>
     )
   }
 }
