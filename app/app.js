@@ -9,17 +9,15 @@ import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import createHistory from 'history/createBrowserHistory'
 
 import App from 'containers/App'
 import HomePage from 'containers/HomePage'
 
 import configureStore from './store'
 
-// Create redux store with history
-const history = createHistory()
+// Create redux store
 const initialState = {}
-const store = configureStore(initialState, history)
+const store = configureStore(initialState)
 
 const render = () => {
   ReactDOM.render(
