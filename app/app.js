@@ -11,6 +11,9 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 
+import App from 'containers/App'
+import HomePage from 'containers/HomePage'
+
 import configureStore from './store'
 
 // Create redux store with history
@@ -21,7 +24,9 @@ const store = configureStore(initialState, history)
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
-      <h1>Test render</h1>
+      <App>
+        <HomePage />
+      </App>
     </Provider>,
     document.getElementById('wp-react-post-editor')
   )
