@@ -2,8 +2,7 @@ import { fromJS } from 'immutable'
 
 import {
   selectHome,
-  makeSelectText,
-  makeSelectCount
+  makeSelectRecentPosts
 } from '../selectors'
 
 describe('selectHome', () => {
@@ -18,27 +17,17 @@ describe('selectHome', () => {
   })
 })
 
-describe('makeSelectText', () => {
-  const textSelector = makeSelectText()
-  it('should select the text', () => {
-    const text = 'we will translate this'
+describe('makeSelectRecentPosts', () => {
+  const textSelector = makeSelectRecentPosts()
+  it('should select the recent posts', () => {
+    const recentPosts = fromJS([])
     const mockedState = fromJS({
       home: {
-        text
+        recentPostsData: {
+          recentPosts
+        }
       }
     })
-    expect(textSelector(mockedState)).toEqual(text)
-  })
-})
-
-describe('makeSelectCount', () => {
-  const countSelector = makeSelectCount()
-  it('should select the count', () => {
-    const mockedState = fromJS({
-      home: {
-        count: 0
-      }
-    })
-    expect(countSelector(mockedState)).toEqual(0)
+    expect(textSelector(mockedState)).toEqual(recentPosts)
   })
 })

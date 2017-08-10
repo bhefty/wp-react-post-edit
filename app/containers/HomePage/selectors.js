@@ -2,18 +2,12 @@ import { createSelector } from 'reselect'
 
 const selectHome = state => state.get('home')
 
-const makeSelectText = () => createSelector(
+const makeSelectRecentPosts = () => createSelector(
   selectHome,
-  (homeState) => homeState.get('text')
-)
-
-const makeSelectCount = () => createSelector(
-  selectHome,
-  (homeState) => homeState.get('count')
+  (homeState) => homeState.getIn(['recentPostsData', 'recentPosts'])
 )
 
 export {
   selectHome,
-  makeSelectText,
-  makeSelectCount
+  makeSelectRecentPosts
 }
