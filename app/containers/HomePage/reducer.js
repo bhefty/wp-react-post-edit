@@ -1,22 +1,34 @@
 import { fromJS } from 'immutable'
-import * as types from './constants'
+
+import {
+  LOAD_RECENT_POSTS,
+  LOAD_RECENT_POSTS_SUCCESS,
+  LOAD_RECENT_POSTS_ERROR
+} from './constants'
 
 const initialState = fromJS({
-  text: '',
-  count: 0
+  loading: false,
+  error: false,
+  recentPostsData: {
+    recentPosts: false
+  }
 })
 
 function homeReducer (state = initialState, action) {
   switch (action.type) {
-    case types.CHANGE_TEXT:
+    case LOAD_RECENT_POSTS:
       return state
-        .set('text', action.text)
-    case types.INCREMENT:
+        .set('loading', true)
+        .set('error', false)
+        .setIn(['recentPostsData', 'recentPosts'], false)
+    case LOAD_RECENT_POSTS_SUCCESS:
       return state
-        .update('count', n => n + 1)
-    case types.DECREMENT:
+        .setIn(['recentPostsData', 'recentPosts'], action.recentPosts)
+        .set('loading', false)
+    case LOAD_RECENT_POSTS_ERROR:
       return state
-        .update('count', n => n - 1)
+        .set('error', action.error)
+        .set('loading', false)
     default:
       return state
   }
