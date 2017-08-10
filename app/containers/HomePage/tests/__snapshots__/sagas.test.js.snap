@@ -1,21 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getTranslation Saga should call the translationLoadingError action if the response errors 1`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "SELECT": Object {
-    "args": Array [],
-    "selector": [Function],
-  },
-}
-`;
-
-exports[`getTranslation Saga should call the translationLoadingError action if the response errors 2`] = `
+exports[`getRecentPosts Saga should call the recentPostsLoadingError action if the response errors 1`] = `
 Object {
   "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
-      "http://yoda-speak-wrapper.herokuapp.com/api/we will translate this",
+      "about:blank/wp-json/wp/v2/posts?orderBy=date&order=desc&per_page=5",
     ],
     "context": null,
     "fn": [Function],
@@ -23,25 +13,15 @@ Object {
 }
 `;
 
-exports[`getTranslation Saga should dispatch the translationLoaded action if it requests the data successfully 1`] = `
+exports[`getRecentPosts Saga should call the recentPostsLoadingError action if the response errors 2`] = `
 Object {
   "@@redux-saga/IO": true,
-  "SELECT": Object {
-    "args": Array [],
-    "selector": [Function],
-  },
-}
-`;
-
-exports[`getTranslation Saga should dispatch the translationLoaded action if it requests the data successfully 2`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "CALL": Object {
-    "args": Array [
-      "http://yoda-speak-wrapper.herokuapp.com/api/we will translate this",
-    ],
-    "context": null,
-    "fn": [Function],
+  "PUT": Object {
+    "action": Object {
+      "recentPosts": undefined,
+      "type": "wp-react-post-edit/LOAD_RECENT_POSTS_SUCCESS",
+    },
+    "channel": null,
   },
 }
 `;
