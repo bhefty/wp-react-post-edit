@@ -1,38 +1,47 @@
 import {
-  CHANGE_TEXT,
-  INCREMENT,
-  DECREMENT
+  LOAD_RECENT_POSTS,
+  LOAD_RECENT_POSTS_SUCCESS,
+  LOAD_RECENT_POSTS_ERROR
 } from '../constants'
 
 import {
-  changeText,
-  increment,
-  decrement
+  loadRecentPosts,
+  recentPostsLoaded,
+  recentPostsLoadingError
 } from '../actions'
 
 describe('Home Actions', () => {
-  describe('changeText', () => {
-    it('should return the correct type and the passed text', () => {
-      const fixture = 'sample text'
-      const expectedResult = {
-        type: CHANGE_TEXT,
-        text: fixture
+  describe('loadRecentPosts', () => {
+    it('should return the correct type', () => {
+      const expectedResult = { type: LOAD_RECENT_POSTS }
+      expect(loadRecentPosts()).toEqual(expectedResult)
+    })
+  })
+
+  describe('recentPostsLoaded', () => {
+    it('should return the correct type', () => {
+      const fixture = {
+        recentPosts: [
+          { title: 'test' },
+          { title: 'demo' }
+        ]
       }
-      expect(changeText(fixture)).toEqual(expectedResult)
+      const expectedResult = {
+        type: LOAD_RECENT_POSTS_SUCCESS,
+        recentPosts: fixture
+      }
+      expect(recentPostsLoaded(fixture)).toEqual(expectedResult)
     })
   })
 
-  describe('increment', () => {
+  describe('recentPostsLoadingError', () => {
+    const fixture = { msg: 'error' }
     it('should return the correct type', () => {
-      const expectedResult = { type: INCREMENT }
-      expect(increment()).toEqual(expectedResult)
-    })
-  })
-
-  describe('decrement', () => {
-    it('should return the correct type', () => {
-      const expectedResult = { type: DECREMENT }
-      expect(decrement()).toEqual(expectedResult)
+      const expectedResult = {
+        type: LOAD_RECENT_POSTS_ERROR,
+        error: fixture
+      }
+      expect(recentPostsLoadingError(fixture)).toEqual(expectedResult)
     })
   })
 })
