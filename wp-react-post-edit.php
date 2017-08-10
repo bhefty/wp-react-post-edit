@@ -10,7 +10,7 @@
 class WP_React_Post_Edit {
 
   static function admin_enqueue_scripts() {
-    wp_enqueue_script( 'wp-react-post-edit-admin', plugins_url( 'build/admin.js', __FILE__ ), array(), 'v0.0.1', true );
+    wp_enqueue_script( 'wp-react-post-edit-admin', plugins_url( 'build/main.js', __FILE__ ), array(), 'v0.0.1', true );
   }
 
   static function add_admin_page() {
