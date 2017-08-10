@@ -2,20 +2,20 @@
 
 <div align='center'>
 <!-- Build status -->
-<a href='https://circleci.com/gh/bhefty/wp-react-post' target='_blank'>
-  <img src='https://circleci.com/gh/bhefty/wp-react-post.svg?style=shield' alt='Dependency Status' />
+<a href='https://circleci.com/gh/bhefty/wp-react-post-edit' target='_blank'>
+  <img src='https://circleci.com/gh/bhefty/wp-react-post-edit.svg?style=shield' alt='Dependency Status' />
 </a>
 <!-- Test coverage -->
-<a href='https://coveralls.io/github/bhefty/wp-react-post?branch=master' target='_blank'>
-  <img src='https://coveralls.io/repos/github/bhefty/wp-react-post/badge.svg?branch=master' alt='Dependency Status' />
+<a href='https://coveralls.io/github/bhefty/wp-react-post-edit?branch=master' target='_blank'>
+  <img src='https://coveralls.io/repos/github/bhefty/wp-react-post-edit/badge.svg?branch=master' alt='Dependency Status' />
 </a>
 <!-- depedency status -->
-<a href='https://david-dm.org/bhefty/wp-react-post' target='_blank'>
-  <img src='https://david-dm.org/bhefty/wp-react-post/status.svg' alt='Dependency Status' />
+<a href='https://david-dm.org/bhefty/wp-react-post-edit' target='_blank'>
+  <img src='https://david-dm.org/bhefty/wp-react-post-edit/status.svg' alt='Dependency Status' />
 </a>
 <!-- devDepedency status -->
-<a href='https://david-dm.org/bhefty/wp-react-post?type=dev' target='_blank'>
-  <img src='https://david-dm.org/bhefty/wp-react-post/dev-status.svg' alt='Dependency Status' />
+<a href='https://david-dm.org/bhefty/wp-react-post-edit?type=dev' target='_blank'>
+  <img src='https://david-dm.org/bhefty/wp-react-post-edit/dev-status.svg' alt='Dependency Status' />
 </a>
 </div>
 
