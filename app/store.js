@@ -8,6 +8,8 @@ import { routerMiddleware } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
 import createReducer from './reducers'
 
+import homeSagas from 'containers/HomePage/sagas'
+
 const sagaMiddleware = createSagaMiddleware()
 
 /* istanbul ignore next */
@@ -37,9 +39,9 @@ const configureStore = (initialState = {}, history) => {
     composeEnhancers(...enhancers)
   )
 
+  sagaMiddleware.run(homeSagas)
   // Extensions
   store.runSaga = sagaMiddleware.run
-  store.asyncReducers = {} // Async reducer registry
 
   // Make reducers hot reloadable
   /* istanbul ignore next */

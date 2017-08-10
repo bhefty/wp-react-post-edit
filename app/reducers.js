@@ -3,6 +3,7 @@ import { combineReducers } from 'redux-immutable'
 import { LOCATION_CHANGE } from 'react-router-redux'
 
 import globalReducer from 'containers/App/reducer'
+import homeReducer from 'containers/HomePage/reducer'
 
 const routeInitialState = fromJS({
   locationBeforeTransitions: null
@@ -21,10 +22,10 @@ function routeReducer (state = routeInitialState, action) {
 }
 
 // Creates main reducer with async loaded ones
-export default function createReducer (asyncReducers) {
+export default function createReducer () {
   return combineReducers({
     route: routeReducer,
     global: globalReducer,
-    ...asyncReducers
+    home: homeReducer
   })
 }
