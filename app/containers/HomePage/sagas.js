@@ -1,6 +1,6 @@
 // Gets Yoda-Speak translation of text from MaShape
 
-import { take, call, put, select, takeLatest } from 'redux-saga/effects'
+import { take, call, put, select, takeLatest, all, fork } from 'redux-saga/effects'
 import { LOCATION_CHANGE } from 'react-router-redux'
 import { LOAD_TRANSLATION } from 'containers/App/constants'
 import { translationLoaded, translationLoadingError } from 'containers/App/actions'
@@ -36,6 +36,8 @@ export function * translationData () {
 }
 
 // Bootstrap sagas
-export default [
-  translationData
-]
+export default function * homeSagas () {
+  yield all([
+    fork(translationData)
+  ])
+}
