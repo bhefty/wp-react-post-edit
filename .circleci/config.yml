@@ -21,13 +21,3 @@ jobs:
       - run:
           name: coverage
           command: npm run coveralls
-      - run: bash .circleci/setup-heroku.sh
-      - add_ssh_keys:
-          fingerprints:
-            - "09:f4:e6:f9:24:81:f3:0e:fa:86:90:68:da:df:d6:b8"
-      - deploy:
-          name: Deploy Master to Heroku
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              git push heroku master
-            fi
