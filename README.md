@@ -34,6 +34,6 @@ Write a WordPress plugin that allows you to edit the 5 most recent posts (post t
 - [ ] **Extra credit** if the application allows changing the featured image of a displayed post
 
 ### Bonus Points
-- [ ] Include unit tests
+- [x] Include unit tests
 - [x] Use at least ES6 as a JavaScript version
-- [ ] Leverage the latest version of [webpack](https://webpack.js.org/)
+- [x] Leverage the latest version of [webpack](https://webpack.js.org/)
