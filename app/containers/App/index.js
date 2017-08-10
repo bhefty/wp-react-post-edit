@@ -2,10 +2,9 @@ import React, { PureComponent } from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
 
-import Header from 'components/Header'
-import Footer from 'components/Footer'
+// import Header from 'components/Header'
+// import Footer from 'components/Footer'
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -31,14 +30,12 @@ export class App extends PureComponent {
             { name: 'description', content: 'A React.js Boierlplate application with Redux' }
           ]}
         />
-        <Header />
         <AppWrapper>
           {React.Children.toArray(this.props.children)}
         </AppWrapper>
-        <Footer />
       </div>
     )
   }
 }
 
-export default withRouter(App)
+export default App
