@@ -49,7 +49,7 @@ const render = () => {
     <Provider store={store}>
       <RouteConfig store={store} history={history} />
     </Provider>,
-    document.getElementById('app')
+    document.getElementById('wp-react-post-editor')
   )
 }
 render()
