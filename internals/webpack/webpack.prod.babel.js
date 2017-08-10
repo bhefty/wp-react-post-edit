@@ -1,7 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const OfflinePlugin = require('offline-plugin')
 
 module.exports = require('./webpack.base.babel')({
   // Skip hot-loading in production
@@ -11,7 +9,7 @@ module.exports = require('./webpack.base.babel')({
 
   // Utilize long-term caching by adding content hashes to compiled assets
   output: {
-    filename: '[name].[chunkhash].js',
+    filename: '[name].js',
     chunkFilename: '[name].[chunkhash].chunk.js'
   },
 
@@ -34,40 +32,6 @@ module.exports = require('./webpack.base.babel')({
       children: true,
       minChunks: 2,
       async: true
-    }),
-
-    // Minify and optimize index.html
-    new HtmlWebpackPlugin({
-      template: 'app/index.html',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true
-      },
-      inject: true
-    }),
-
-    new OfflinePlugin({
-      relativePaths: false,
-      publicPath: '/',
-      excludes: ['.htaccess'],
-      caches: {
-        main: [':rest:'],
-
-        // All chunks marked as `additional`, loaded after main section
-        // and do not prevent SW to install. Change to `optional` if
-        // you do not want them to be preloaded at all (cached on first load)
-        additional: ['*.chunk.js']
-      },
-      safeToUseOptionalCaches: true,
-      AppCache: false
     })
   ],
 
