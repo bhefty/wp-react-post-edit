@@ -8,6 +8,7 @@ import { makeSelectRecentPosts } from './selectors'
 import H1 from 'components/H1'
 import H2 from 'components/H2'
 import H3 from 'components/H3'
+import RecentPosts from 'components/RecentPosts'
 
 export class HomePage extends PureComponent {
   static propTypes = {
@@ -26,12 +27,11 @@ export class HomePage extends PureComponent {
           <div className='row'>
             <div className='col-md-offset-1 col-md-6'>
               <H2>Recent Posts</H2>
-              {/* istanbul ignore next */ this.props.recentPosts &&
-                this.props.recentPosts.map((post, idx) => {
-                  /* istanbul ignore next */
-                  return <p key={idx}>{post.title.rendered}</p>
-                })
-              }
+              <RecentPosts
+                recentPosts={this.props.recentPosts}
+                error={false}
+                loading={false}
+              />
             </div>
           </div>
         </div>
