@@ -15,6 +15,9 @@ import HomePage from 'containers/HomePage'
 
 import configureStore from './store'
 
+// import 'mini.css/dist/mini-nord.min.css'
+import './grid.scss'
+
 // Create redux store
 const initialState = {}
 const store = configureStore(initialState)
