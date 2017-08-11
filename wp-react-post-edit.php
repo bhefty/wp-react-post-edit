@@ -10,6 +10,11 @@
 class WP_React_Post_Edit {
 
   static function admin_enqueue_scripts() {
+    wp_localize_script( 'wp-api', 'wpApiSettings', array(
+      'root' => esc_url_raw( rest_url() ),
+      'nonce' => wp_create_nonce( 'wp_rest' )
+    ) );
+    wp_enqueue_script( 'wp-api' );
     wp_enqueue_script( 'wp-react-post-edit-admin', plugins_url( 'build/main.js', __FILE__ ), array(), 'v0.0.1', true );
   }
 
