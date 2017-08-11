@@ -8,6 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import LoadingIndicator from 'components/LoadingIndicator'
+import PostItem from 'components/PostItem'
 
 function RecentPosts ({ loading, error, recentPosts }) {
   if (loading) {
@@ -25,7 +26,7 @@ function RecentPosts ({ loading, error, recentPosts }) {
     return (
       <div>
         {recentPosts.map((post, idx) => {
-          return <p key={idx}>{post.title.rendered}</p>
+          return <PostItem key={idx} title={post.title.rendered} />
         })}
       </div>
     )

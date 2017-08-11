@@ -23,14 +23,17 @@ describe('<RecentPosts />', () => {
   })
 
   it('should render the recent posts if loading was successful', () => {
-    const recentPosts = [{ title: 'One' }, { title: 'Two' }]
+    const recentPosts = [
+      { title: { rendered: 'One' } },
+      { title: { rendered: 'Two' } }
+    ]
     const renderedComponent = shallow(
       <RecentPosts
         recentPosts={recentPosts}
         error={false}
       />
     )
-    expect(renderedComponent.contains('Post')).toEqual(true)
+    expect(renderedComponent.find('PostItem').length).toEqual(2)
   })
 
   it('should not render anything if nothing is provided', () => {

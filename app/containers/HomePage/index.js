@@ -21,21 +21,17 @@ export class HomePage extends PureComponent {
   render () {
     return (
       <div className='row'>
-        <div className='col-md-7'>
+        <div className='col-md-8'>
           <H1>Quick Editor</H1>
           <p>Update and change the title of one of your recent posts quickly. Don’t need it anymore? Feel free to delete it!</p>
-          <div className='row'>
-            <div className='col-md-offset-1 col-md-6'>
-              <H2>Recent Posts</H2>
-              <RecentPosts
-                recentPosts={this.props.recentPosts}
-                error={false}
-                loading={false}
-              />
-            </div>
-          </div>
+          <H2>Recent Posts</H2>
+          <RecentPosts
+            recentPosts={this.props.recentPosts}
+            error={false}
+            loading={false}
+          />
         </div>
-        <div className='col-md-offset-2 col-md-3'>
+        <div className='col-md-offset-1 col-md-3'>
           <H3>Help</H3>
           <ul>
             <li>Click the title text to edit it</li>
