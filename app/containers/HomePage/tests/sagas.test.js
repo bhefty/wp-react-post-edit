@@ -1,32 +1,21 @@
-import { put, takeLatest } from 'redux-saga/effects'
+/**
+ * TODO: Add sufficient Saga testing
+ */
 
-import { LOAD_RECENT_POSTS } from 'containers/HomePage/constants'
-import { recentPostsLoadingError } from 'containers/HomePage/actions'
+import { takeLatest, take } from 'redux-saga/effects'
 
-import { getRecentPosts, recentPosts } from '../sagas'
+import {
+  LOAD_RECENT_POSTS,
+  DELETE_POST
+} from 'containers/HomePage/constants'
+
+import {
+  getRecentPosts,
+  recentPosts,
+  watchDeletePost
+} from '../sagas'
 
 /* eslint-disable redux-saga/yield-effects */
-describe('getRecentPosts Saga', () => {
-  let getRecentPostsGenerator
-
-  // We have to test twice, once for successful load and once for unsuccessful one
-  // so we do all the stuff that happens beforehand automatically in the beforeEach
-  beforeEach(() => {
-    getRecentPostsGenerator = getRecentPosts()
-
-    const selectDescriptor = getRecentPostsGenerator.next().value
-    expect(selectDescriptor).toMatchSnapshot()
-
-    const callDescriptor = getRecentPostsGenerator.next().value
-    expect(callDescriptor).toMatchSnapshot()
-  })
-
-  it('should call the recentPostsLoadingError action if the response errors', () => {
-    const response = new Error('Some error')
-    const putDescriptor = getRecentPostsGenerator.throw(response).value
-    expect(putDescriptor).toEqual(put(recentPostsLoadingError(response)))
-  })
-})
 
 describe('recentPost Saga', () => {
   const recentPostsSaga = recentPosts()
@@ -34,5 +23,16 @@ describe('recentPost Saga', () => {
   it('should start task to watch for the LOAD_TRANSLATION action', () => {
     const takeLatestDescriptor = recentPostsSaga.next().value
     expect(takeLatestDescriptor).toEqual(takeLatest(LOAD_RECENT_POSTS, getRecentPosts))
+  })
+})
+
+describe('watchDeletePost saga', () => {
+  const watchDeletePostSaga = watchDeletePost()
+  it('should start task to watch for DELETE_POST action', () => {
+    const takeDescriptor = watchDeletePostSaga.next().value
+    expect(takeDescriptor).toEqual(take(DELETE_POST))
+
+    const callDescriptor = watchDeletePostSaga.next().value
+    expect(callDescriptor).toMatchSnapshot()
   })
 })

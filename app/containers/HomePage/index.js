@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import { loadRecentPosts } from './actions'
-import { makeSelectRecentPosts } from './selectors'
+import { loadRecentPosts, deletePost } from './actions'
+import { makeSelectRecentPosts, makeSelectPostToDelete } from './selectors'
 import H1 from 'components/H1'
 import H2 from 'components/H2'
 import H3 from 'components/H3'
@@ -29,6 +29,7 @@ export class HomePage extends PureComponent {
             recentPosts={this.props.recentPosts}
             error={false}
             loading={false}
+            onDeletePost={this.props.onDeletePost}
           />
         </div>
         <div className='col-md-offset-1 col-md-3'>
@@ -50,12 +51,14 @@ export class HomePage extends PureComponent {
 }
 
 const mapStateToProps = createStructuredSelector({
-  recentPosts: makeSelectRecentPosts()
+  recentPosts: makeSelectRecentPosts(),
+  deletePostID: makeSelectPostToDelete()
 })
 
 export function mapDispatchToProps (dispatch) {
   return {
-    onLoadRecentPosts: () => dispatch(loadRecentPosts())
+    onLoadRecentPosts: () => dispatch(loadRecentPosts()),
+    onDeletePost: (id) => dispatch(deletePost(id))
   }
 }
 

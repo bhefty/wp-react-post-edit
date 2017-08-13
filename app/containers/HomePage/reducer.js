@@ -3,7 +3,10 @@ import { fromJS } from 'immutable'
 import {
   LOAD_RECENT_POSTS,
   LOAD_RECENT_POSTS_SUCCESS,
-  LOAD_RECENT_POSTS_ERROR
+  LOAD_RECENT_POSTS_ERROR,
+  DELETE_POST,
+  DELETE_POST_SUCCESS,
+  DELETE_POST_ERROR
 } from './constants'
 
 const initialState = fromJS({
@@ -11,6 +14,10 @@ const initialState = fromJS({
   error: false,
   recentPostsData: {
     recentPosts: false
+  },
+  deletePostData: {
+    deletePostID: false,
+    msg: false
   }
 })
 
@@ -26,6 +33,20 @@ function homeReducer (state = initialState, action) {
         .setIn(['recentPostsData', 'recentPosts'], action.recentPosts)
         .set('loading', false)
     case LOAD_RECENT_POSTS_ERROR:
+      return state
+        .set('error', action.error)
+        .set('loading', false)
+    case DELETE_POST:
+      return state
+        .set('loading', true)
+        .set('error', false)
+        .setIn(['deletePostData', 'deletePostID'], action.id)
+        .setIn(['deletePostData', 'msg'], false)
+    case DELETE_POST_SUCCESS:
+      return state
+        .setIn(['deletePostData', 'msg'], action.msg)
+        .set('loading', false)
+    case DELETE_POST_ERROR:
       return state
         .set('error', action.error)
         .set('loading', false)

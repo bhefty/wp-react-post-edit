@@ -2,7 +2,8 @@ import { fromJS } from 'immutable'
 
 import {
   selectHome,
-  makeSelectRecentPosts
+  makeSelectRecentPosts,
+  makeSelectPostToDelete
 } from '../selectors'
 
 describe('selectHome', () => {
@@ -29,5 +30,20 @@ describe('makeSelectRecentPosts', () => {
       }
     })
     expect(textSelector(mockedState)).toEqual(recentPosts)
+  })
+})
+
+describe('makeSelectPostToDelete', () => {
+  const postSelector = makeSelectPostToDelete()
+  it('should select the post id to delete', () => {
+    const deletePostID = fromJS('1')
+    const mockedState = fromJS({
+      home: {
+        deletePostData: {
+          deletePostID
+        }
+      }
+    })
+    expect(postSelector(mockedState)).toEqual(deletePostID)
   })
 })

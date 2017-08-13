@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { HomePage, mapDispatchToProps } from '../index'
-import { loadRecentPosts } from '../actions'
+import { loadRecentPosts, deletePost } from '../actions'
 
 describe('<HomePage />', () => {
   it('should render to the page', () => {
@@ -23,6 +23,21 @@ describe('<HomePage />', () => {
         const result = mapDispatchToProps(dispatch)
         result.onLoadRecentPosts()
         expect(dispatch).toHaveBeenCalledWith(loadRecentPosts())
+      })
+    })
+
+    describe('onDeletePost', () => {
+      it('should be injected', () => {
+        const dispatch = jest.fn()
+        const result = mapDispatchToProps(dispatch)
+        expect(result.onDeletePost).toBeDefined()
+      })
+
+      it('should dispatch deletePost when called', () => {
+        const dispatch = jest.fn()
+        const result = mapDispatchToProps(dispatch)
+        result.onDeletePost()
+        expect(dispatch).toHaveBeenCalledWith(deletePost())
       })
     })
   })

@@ -5,7 +5,10 @@ import homeReducer from '../reducer'
 import {
   loadRecentPosts,
   recentPostsLoaded,
-  recentPostsLoadingError
+  recentPostsLoadingError,
+  deletePost,
+  deletePostSuccess,
+  deletePostError
 } from '../actions'
 
 describe('homeReducer', () => {
@@ -16,6 +19,10 @@ describe('homeReducer', () => {
       error: false,
       recentPostsData: {
         recentPosts: false
+      },
+      deletePostData: {
+        deletePostID: false,
+        msg: false
       }
     })
   })
@@ -52,5 +59,31 @@ describe('homeReducer', () => {
       .set('error', fixture)
       .set('loading', false)
     expect(homeReducer(state, recentPostsLoadingError(fixture))).toEqual(expectedResult)
+  })
+
+  it('should handle the deletePost action correclty', () => {
+    const fixture = { id: '1' }
+    const expectedResult = state
+      .set('loading', true)
+      .set('error', false)
+      .setIn(['deletePostData', 'deletePostID'], fixture)
+      .setIn(['deletePostData', 'msg'], false)
+    expect(homeReducer(state, deletePost(fixture))).toEqual(expectedResult)
+  })
+
+  it('should handle the deletePostSuccess action correclty', () => {
+    const fixture = { msg: 'Success' }
+    const expectedResult = state
+      .setIn(['deletePostData', 'msg'], fixture)
+      .set('loading', false)
+    expect(homeReducer(state, deletePostSuccess(fixture))).toEqual(expectedResult)
+  })
+
+  it('should handle the deletePostError action correclty', () => {
+    const fixture = { error: 'Error' }
+    const expectedResult = state
+      .set('error', fixture)
+      .set('loading', false)
+    expect(homeReducer(state, deletePostError(fixture))).toEqual(expectedResult)
   })
 })

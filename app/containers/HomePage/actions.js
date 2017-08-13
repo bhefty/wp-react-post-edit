@@ -1,7 +1,10 @@
 import {
   LOAD_RECENT_POSTS,
   LOAD_RECENT_POSTS_SUCCESS,
-  LOAD_RECENT_POSTS_ERROR
+  LOAD_RECENT_POSTS_ERROR,
+  DELETE_POST,
+  DELETE_POST_SUCCESS,
+  DELETE_POST_ERROR
 } from './constants'
 
 /**
@@ -39,6 +42,47 @@ export function recentPostsLoaded (recentPosts) {
 export function recentPostsLoadingError (error) {
   return {
     type: LOAD_RECENT_POSTS_ERROR,
+    error
+  }
+}
+
+/**
+ * Delete the post, this action starts the request saga
+ * @param {string} ID of post to delete
+ *
+ * @return {object} An object with a type of DELETE_POST and ID of post to delete
+ */
+export function deletePost (id) {
+  return {
+    type: DELETE_POST,
+    id
+  }
+}
+
+/**
+ * Dispatched when the post is successfully deleted by the request saga
+ *
+ * @param {string} msg The response message
+ *
+ * @return {object} An action object with a type of DELETE_POST_SUCCESS
+ */
+export function deletePostSuccess (msg) {
+  return {
+    type: DELETE_POST_SUCCESS,
+    msg
+  }
+}
+
+/**
+ * Dispatched when deleting the post fails
+ *
+ * @param {object} error The error
+ *
+ * @return {object} An action object with a type of DELETE_POST_ERROR
+ */
+export function deletePostError (error) {
+  return {
+    type: DELETE_POST_ERROR,
     error
   }
 }

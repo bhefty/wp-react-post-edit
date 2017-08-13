@@ -7,7 +7,15 @@ const makeSelectRecentPosts = () => createSelector(
   (homeState) => homeState.getIn(['recentPostsData', 'recentPosts'])
 )
 
+const makeSelectPostToDelete = () => createSelector(
+  selectHome,
+  (homeState) => {
+    return homeState.getIn(['deletePostData', 'deletePostID'])
+  }
+)
+
 export {
   selectHome,
-  makeSelectRecentPosts
+  makeSelectRecentPosts,
+  makeSelectPostToDelete
 }
