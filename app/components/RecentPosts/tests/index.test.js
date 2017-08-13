@@ -24,8 +24,14 @@ describe('<RecentPosts />', () => {
 
   it('should render the recent posts if loading was successful', () => {
     const recentPosts = [
-      { title: { rendered: 'One' } },
-      { title: { rendered: 'Two' } }
+      {
+        id: '1',
+        title: { rendered: 'One' }
+      },
+      {
+        id: '2',
+        title: { rendered: 'Two' }
+      }
     ]
     const renderedComponent = shallow(
       <RecentPosts

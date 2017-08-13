@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import LoadingIndicator from 'components/LoadingIndicator'
 import PostItem from 'components/PostItem'
 
-function RecentPosts ({ loading, error, recentPosts }) {
+function RecentPosts ({ loading, error, recentPosts, onDeletePost }) {
   if (loading) {
     return <LoadingIndicator />
   }
@@ -26,7 +26,7 @@ function RecentPosts ({ loading, error, recentPosts }) {
     return (
       <div>
         {recentPosts.map((post, idx) => {
-          return <PostItem key={idx} title={post.title.rendered} />
+          return <PostItem key={idx} title={post.title.rendered} postId={post.id} onDeletePost={onDeletePost} />
         })}
       </div>
     )
@@ -41,7 +41,8 @@ RecentPosts.propTypes = {
     PropTypes.bool
   ]),
   loading: PropTypes.bool,
-  error: PropTypes.any
+  error: PropTypes.any,
+  onDeletePost: PropTypes.func
 }
 
 export default RecentPosts
