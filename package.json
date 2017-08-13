@@ -76,7 +76,8 @@
       "!app/app.js",
       "!app/routes.js",
       "!app/routeAsyncComponents.js",
-      "!app/utils/asyncComponent.js"
+      "!app/utils/asyncComponent.js",
+      "!app/containers/HomePage/sagas.js"
     ],
     "coverageThreshold": {
       "global": {
