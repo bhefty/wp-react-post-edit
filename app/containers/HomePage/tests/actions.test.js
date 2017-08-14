@@ -4,7 +4,8 @@ import {
   LOAD_RECENT_POSTS_ERROR,
   DELETE_POST,
   DELETE_POST_SUCCESS,
-  DELETE_POST_ERROR
+  DELETE_POST_ERROR,
+  EDIT_TITLE
 } from '../constants'
 
 import {
@@ -13,7 +14,8 @@ import {
   recentPostsLoadingError,
   deletePost,
   deletePostSuccess,
-  deletePostError
+  deletePostError,
+  editTitle
 } from '../actions'
 
 describe('Home Actions', () => {
@@ -81,6 +83,17 @@ describe('Home Actions', () => {
         error: fixture
       }
       expect(deletePostError(fixture)).toEqual(expectedResult)
+    })
+  })
+
+  describe('editTitle', () => {
+    const fixture = 'New title'
+    it('should return the correct type and payload', () => {
+      const expectedResult = {
+        type: EDIT_TITLE,
+        text: fixture
+      }
+      expect(editTitle(fixture)).toEqual(expectedResult)
     })
   })
 })

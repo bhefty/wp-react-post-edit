@@ -14,7 +14,7 @@ import {
   deletePostError
 } from 'containers/HomePage/actions'
 
-import { makeSelectPostToDelete } from 'containers/HomePage/selectors'
+import { makeSelectId } from 'containers/HomePage/selectors'
 
 import request from 'utils/request'
 
@@ -43,7 +43,7 @@ export function * recentPosts () {
 // DELETE
 // Delete post request/response handler
 export function * deletePostSaga () {
-  const id = yield select(makeSelectPostToDelete())
+  const id = yield select(makeSelectId())
   const root = window.wpApiSettings.root
   const requestURL = `${root}wp/v2/posts/${id}`
   const options = {

@@ -37,6 +37,7 @@ describe('<RecentPosts />', () => {
       <RecentPosts
         recentPosts={recentPosts}
         error={false}
+        text={'test'}
       />
     )
     expect(renderedComponent.find('PostItem').length).toEqual(2)

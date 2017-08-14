@@ -8,7 +8,8 @@ import {
   recentPostsLoadingError,
   deletePost,
   deletePostSuccess,
-  deletePostError
+  deletePostError,
+  editTitle
 } from '../actions'
 
 describe('homeReducer', () => {
@@ -17,12 +18,15 @@ describe('homeReducer', () => {
     state = fromJS({
       loading: false,
       error: false,
+      id: false,
       recentPostsData: {
         recentPosts: false
       },
       deletePostData: {
-        deletePostID: false,
         msg: false
+      },
+      titleData: {
+        text: ''
       }
     })
   })
@@ -66,7 +70,7 @@ describe('homeReducer', () => {
     const expectedResult = state
       .set('loading', true)
       .set('error', false)
-      .setIn(['deletePostData', 'deletePostID'], fixture)
+      .set('id', fixture)
       .setIn(['deletePostData', 'msg'], false)
     expect(homeReducer(state, deletePost(fixture))).toEqual(expectedResult)
   })
@@ -85,5 +89,12 @@ describe('homeReducer', () => {
       .set('error', fixture)
       .set('loading', false)
     expect(homeReducer(state, deletePostError(fixture))).toEqual(expectedResult)
+  })
+
+  it('should handle the editTitle action correctly', () => {
+    const fixture = { text: 'New title' }
+    const expectedResult = state
+      .setIn(['titleData', 'text'], fixture)
+    expect(homeReducer(state, editTitle(fixture))).toEqual(expectedResult)
   })
 })

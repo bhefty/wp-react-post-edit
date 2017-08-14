@@ -12,22 +12,26 @@ const makeSelectError = () => createSelector(
   (homeState) => homeState.get('error')
 )
 
+const makeSelectId = () => createSelector(
+  selectHome,
+  (homeState) => homeState.get('id')
+)
+
 const makeSelectRecentPosts = () => createSelector(
   selectHome,
   (homeState) => homeState.getIn(['recentPostsData', 'recentPosts'])
 )
 
-const makeSelectPostToDelete = () => createSelector(
+const makeSelectEditText = () => createSelector(
   selectHome,
-  (homeState) => {
-    return homeState.getIn(['deletePostData', 'deletePostID'])
-  }
+  (homeState) => homeState.getIn(['titleData', 'text'])
 )
 
 export {
   selectHome,
   makeSelectLoading,
   makeSelectError,
+  makeSelectId,
   makeSelectRecentPosts,
-  makeSelectPostToDelete
+  makeSelectEditText
 }

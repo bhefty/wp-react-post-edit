@@ -4,7 +4,8 @@ import {
   LOAD_RECENT_POSTS_ERROR,
   DELETE_POST,
   DELETE_POST_SUCCESS,
-  DELETE_POST_ERROR
+  DELETE_POST_ERROR,
+  EDIT_TITLE
 } from './constants'
 
 /**
@@ -84,5 +85,19 @@ export function deletePostError (error) {
   return {
     type: DELETE_POST_ERROR,
     error
+  }
+}
+
+/**
+ * Dispatched when changing the title of a post
+ *
+ * @param {string} text The text to change the title to
+ *
+ * @return {object} An action object with a type of EDIT_TITLE
+ */
+export function editTitle (text) {
+  return {
+    type: EDIT_TITLE,
+    text
   }
 }

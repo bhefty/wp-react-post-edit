@@ -6,18 +6,22 @@ import {
   LOAD_RECENT_POSTS_ERROR,
   DELETE_POST,
   DELETE_POST_SUCCESS,
-  DELETE_POST_ERROR
+  DELETE_POST_ERROR,
+  EDIT_TITLE
 } from './constants'
 
 const initialState = fromJS({
   loading: false,
   error: false,
+  id: false,
   recentPostsData: {
     recentPosts: false
   },
   deletePostData: {
-    deletePostID: false,
     msg: false
+  },
+  titleData: {
+    text: ''
   }
 })
 
@@ -40,7 +44,7 @@ function homeReducer (state = initialState, action) {
       return state
         .set('loading', true)
         .set('error', false)
-        .setIn(['deletePostData', 'deletePostID'], action.id)
+        .set('id', action.id)
         .setIn(['deletePostData', 'msg'], false)
     case DELETE_POST_SUCCESS:
       return state
@@ -50,6 +54,9 @@ function homeReducer (state = initialState, action) {
       return state
         .set('error', action.error)
         .set('loading', false)
+    case EDIT_TITLE:
+      return state
+        .setIn(['titleData', 'text'], action.text)
     default:
       return state
   }

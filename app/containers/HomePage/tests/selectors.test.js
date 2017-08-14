@@ -5,7 +5,7 @@ import {
   makeSelectLoading,
   makeSelectError,
   makeSelectRecentPosts,
-  makeSelectPostToDelete
+  makeSelectId
 } from '../selectors'
 
 describe('selectHome', () => {
@@ -46,6 +46,19 @@ describe('makeSelectError', () => {
   })
 })
 
+describe('makeSelectId', () => {
+  const postSelector = makeSelectId()
+  it('should select the post id', () => {
+    const id = fromJS('1')
+    const mockedState = fromJS({
+      home: {
+        id
+      }
+    })
+    expect(postSelector(mockedState)).toEqual(id)
+  })
+})
+
 describe('makeSelectRecentPosts', () => {
   const textSelector = makeSelectRecentPosts()
   it('should select the recent posts', () => {
@@ -58,20 +71,5 @@ describe('makeSelectRecentPosts', () => {
       }
     })
     expect(textSelector(mockedState)).toEqual(recentPosts)
-  })
-})
-
-describe('makeSelectPostToDelete', () => {
-  const postSelector = makeSelectPostToDelete()
-  it('should select the post id to delete', () => {
-    const deletePostID = fromJS('1')
-    const mockedState = fromJS({
-      home: {
-        deletePostData: {
-          deletePostID
-        }
-      }
-    })
-    expect(postSelector(mockedState)).toEqual(deletePostID)
   })
 })

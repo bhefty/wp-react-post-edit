@@ -4,3 +4,4 @@ export const LOAD_RECENT_POSTS_ERROR = 'wp-react-post-edit/LOAD_RECENT_POSTS_ERR
 export const DELETE_POST = 'wp-react-post-edit/DELETE_POST'
 export const DELETE_POST_SUCCESS = 'wp-react-post-edit/DELETE_POST_SUCCESS'
 export const DELETE_POST_ERROR = 'wp-react-post-edit/DELETE_POST_ERROR'
+export const EDIT_TITLE = 'wp-react-post-edit/EDIT_TITLE'

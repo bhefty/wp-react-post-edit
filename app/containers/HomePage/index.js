@@ -3,13 +3,12 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import { loadRecentPosts, deletePost } from './actions'
+import { loadRecentPosts, deletePost, editTitle } from './actions'
 
 import {
   makeSelectLoading,
   makeSelectError,
-  makeSelectRecentPosts,
-  makeSelectPostToDelete
+  makeSelectRecentPosts
 } from './selectors'
 
 import H1 from 'components/H1'
@@ -22,7 +21,9 @@ export class HomePage extends PureComponent {
     recentPosts: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.bool
-    ])
+    ]),
+    loading: PropTypes.bool,
+    error: PropTypes.string
   }
 
   render () {
@@ -37,6 +38,8 @@ export class HomePage extends PureComponent {
             error={this.props.error}
             loading={this.props.loading}
             onDeletePost={this.props.onDeletePost}
+            onChangeTitle={this.props.onChangeTitle}
+            text={this.props.text}
           />
         </div>
         <div className='col-md-offset-1 col-md-3'>
@@ -60,14 +63,14 @@ export class HomePage extends PureComponent {
 const mapStateToProps = createStructuredSelector({
   loading: makeSelectLoading(),
   error: makeSelectError(),
-  recentPosts: makeSelectRecentPosts(),
-  deletePostID: makeSelectPostToDelete()
+  recentPosts: makeSelectRecentPosts()
 })
 
 export function mapDispatchToProps (dispatch) {
   return {
     onLoadRecentPosts: () => dispatch(loadRecentPosts()),
-    onDeletePost: (id) => dispatch(deletePost(id))
+    onDeletePost: (id) => dispatch(deletePost(id)),
+    onChangeTitle: (id, text) => dispatch(editTitle(id, text))
   }
 }
 
