@@ -4,7 +4,14 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
 import { loadRecentPosts, deletePost } from './actions'
-import { makeSelectRecentPosts, makeSelectPostToDelete } from './selectors'
+
+import {
+  makeSelectLoading,
+  makeSelectError,
+  makeSelectRecentPosts,
+  makeSelectPostToDelete
+} from './selectors'
+
 import H1 from 'components/H1'
 import H2 from 'components/H2'
 import H3 from 'components/H3'
@@ -27,8 +34,8 @@ export class HomePage extends PureComponent {
           <H2>Recent Posts</H2>
           <RecentPosts
             recentPosts={this.props.recentPosts}
-            error={false}
-            loading={false}
+            error={this.props.error}
+            loading={this.props.loading}
             onDeletePost={this.props.onDeletePost}
           />
         </div>
@@ -51,6 +58,8 @@ export class HomePage extends PureComponent {
 }
 
 const mapStateToProps = createStructuredSelector({
+  loading: makeSelectLoading(),
+  error: makeSelectError(),
   recentPosts: makeSelectRecentPosts(),
   deletePostID: makeSelectPostToDelete()
 })

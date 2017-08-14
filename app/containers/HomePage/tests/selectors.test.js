@@ -2,6 +2,8 @@ import { fromJS } from 'immutable'
 
 import {
   selectHome,
+  makeSelectLoading,
+  makeSelectError,
   makeSelectRecentPosts,
   makeSelectPostToDelete
 } from '../selectors'
@@ -15,6 +17,32 @@ describe('selectHome', () => {
       home: homeState
     })
     expect(selectHome(mockedState)).toEqual(homeState)
+  })
+})
+
+describe('makeSelectLoading', () => {
+  const loadingSelector = makeSelectLoading()
+  it('should select loading', () => {
+    const loading = fromJS(false)
+    const mockedState = fromJS({
+      home: {
+        loading
+      }
+    })
+    expect(loadingSelector(mockedState)).toEqual(loading)
+  })
+})
+
+describe('makeSelectError', () => {
+  const errorSelector = makeSelectError()
+  it('should select error', () => {
+    const error = fromJS('Error occurred')
+    const mockedState = fromJS({
+      home: {
+        error
+      }
+    })
+    expect(errorSelector(mockedState)).toEqual(error)
   })
 })
 
