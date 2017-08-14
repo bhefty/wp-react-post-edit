@@ -22,10 +22,11 @@ import { makeSelectId, makeSelectEditText } from 'containers/HomePage/selectors'
 
 import request from 'utils/request'
 
+const root = window.wpApiSettings.root
+
 // GET
 // Recent posts request/response handler
 export function * getRecentPosts () {
-  const root = window.wpApiSettings.root
   const requestURL = `${root}wp/v2/posts?orderBy=date&order=desc&per_page=5`
 
   /* istanbul ignore next */
@@ -48,7 +49,6 @@ export function * recentPosts () {
 // Delete post request/response handler
 export function * deletePostSaga () {
   const id = yield select(makeSelectId())
-  const root = window.wpApiSettings.root
   const requestURL = `${root}wp/v2/posts/${id}`
   const options = {
     method: 'DELETE',
@@ -89,7 +89,6 @@ export function * watchDeletePostSuccess () {
 export function * editPostTitleSaga () {
   const id = yield select(makeSelectId())
   const text = yield select(makeSelectEditText())
-  const root = window.wpApiSettings.root
   const requestURL = `${root}wp/v2/posts/${id}`
   const options = {
     method: 'POST',
