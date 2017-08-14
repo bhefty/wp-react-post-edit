@@ -7,6 +7,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
+import Img from 'components/Img'
 import Wrapper from './Wrapper'
 import Title from './Title'
 
@@ -30,9 +31,12 @@ export class PostItem extends PureComponent {
   }
 
   render () {
-    const { title, postId } = this.props
+    const { title, postId, featuredMedia } = this.props
     return (
       <Wrapper className='row'>
+        {featuredMedia &&
+          <Img src={featuredMedia} alt={this.state.editTitleText} />
+        }
         <form onSubmit={(evt) => this.changeTitle(evt, postId)} >
           {this.state.edit
             ? <Title className='col-sm-12' value={this.state.editTitleText} onChange={this.onEdit.bind(this)} />

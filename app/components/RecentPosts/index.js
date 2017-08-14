@@ -36,7 +36,21 @@ function RecentPosts ({ loading, error, recentPosts, onDeletePost, onChangeTitle
     return (
       <div>
         {recentPosts.map((post, idx) => {
-          return <PostItem key={idx} title={decodeHtml(post.title.rendered)} postId={post.id} onDeletePost={onDeletePost} onChangeTitle={onChangeTitle} />
+          let featuredMedia = false
+          // Check if post has a featured image
+          if (post._embedded['wp:featuredmedia']) {
+            featuredMedia = post._embedded['wp:featuredmedia'][0].source_url
+          }
+          return (
+            <PostItem
+              key={idx}
+              title={decodeHtml(post.title.rendered)}
+              postId={post.id}
+              featuredMedia={featuredMedia}
+              onDeletePost={onDeletePost}
+              onChangeTitle={onChangeTitle}
+            />
+          )
         })}
       </div>
     )

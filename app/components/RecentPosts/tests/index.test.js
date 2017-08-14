@@ -26,11 +26,21 @@ describe('<RecentPosts />', () => {
     const recentPosts = [
       {
         id: '1',
-        title: { rendered: 'One' }
+        title: { rendered: 'One' },
+        _embedded: {
+          'wp:featuredmedia': [{
+            source_url: 'http://test.jpg'
+          }]
+        }
       },
       {
         id: '2',
-        title: { rendered: 'Two' }
+        title: { rendered: 'Two' },
+        _embedded: {
+          'wp:featuredmedia': [{
+            source_url: 'http://test.jpg'
+          }]
+        }
       }
     ]
     const renderedComponent = shallow(
