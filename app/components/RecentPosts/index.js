@@ -10,6 +10,16 @@ import PropTypes from 'prop-types'
 import LoadingIndicator from 'components/LoadingIndicator'
 import PostItem from 'components/PostItem'
 
+/**
+ * decodeHtml example from:
+ * https://stackoverflow.com/questions/7394748/whats-the-right-way-to-decode-a-string-that-has-special-html-entities-in-it/7394787#7394787
+ */
+function decodeHtml (html) {
+  let txt = document.createElement('textarea')
+  txt.innerHTML = html
+  return txt.value
+}
+
 function RecentPosts ({ loading, error, recentPosts, onDeletePost, onChangeTitle }) {
   if (loading) {
     return <LoadingIndicator />
@@ -26,7 +36,7 @@ function RecentPosts ({ loading, error, recentPosts, onDeletePost, onChangeTitle
     return (
       <div>
         {recentPosts.map((post, idx) => {
-          return <PostItem key={idx} title={post.title.rendered} postId={post.id} onDeletePost={onDeletePost} onChangeTitle={onChangeTitle} />
+          return <PostItem key={idx} title={decodeHtml(post.title.rendered)} postId={post.id} onDeletePost={onDeletePost} onChangeTitle={onChangeTitle} />
         })}
       </div>
     )

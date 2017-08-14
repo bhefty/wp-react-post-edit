@@ -5,7 +5,9 @@ import {
   DELETE_POST,
   DELETE_POST_SUCCESS,
   DELETE_POST_ERROR,
-  EDIT_TITLE
+  EDIT_TITLE,
+  EDIT_TITLE_SUCCESS,
+  EDIT_TITLE_ERROR
 } from '../constants'
 
 import {
@@ -15,7 +17,9 @@ import {
   deletePost,
   deletePostSuccess,
   deletePostError,
-  editTitle
+  editTitle,
+  editTitleSuccess,
+  editTitleError
 } from '../actions'
 
 describe('Home Actions', () => {
@@ -87,13 +91,36 @@ describe('Home Actions', () => {
   })
 
   describe('editTitle', () => {
-    const fixture = 'New title'
+    const fixture = { id: '1', text: 'Test' }
     it('should return the correct type and payload', () => {
       const expectedResult = {
         type: EDIT_TITLE,
-        text: fixture
+        id: fixture.id,
+        text: fixture.text
       }
-      expect(editTitle(fixture)).toEqual(expectedResult)
+      expect(editTitle(fixture.id, fixture.text)).toEqual(expectedResult)
+    })
+  })
+
+  describe('editTitleSuccess', () => {
+    const fixture = 'Success!'
+    it('should return the correct type and payload', () => {
+      const expectedResult = {
+        type: EDIT_TITLE_SUCCESS,
+        msg: fixture
+      }
+      expect(editTitleSuccess(fixture)).toEqual(expectedResult)
+    })
+  })
+
+  describe('editTitleError', () => {
+    const fixture = 'Error occurred'
+    it('should return the correct type and payload', () => {
+      const expectedResult = {
+        type: EDIT_TITLE_ERROR,
+        error: fixture
+      }
+      expect(editTitleError(fixture)).toEqual(expectedResult)
     })
   })
 })

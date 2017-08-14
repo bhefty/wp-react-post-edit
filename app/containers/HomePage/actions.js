@@ -5,7 +5,9 @@ import {
   DELETE_POST,
   DELETE_POST_SUCCESS,
   DELETE_POST_ERROR,
-  EDIT_TITLE
+  EDIT_TITLE,
+  EDIT_TITLE_SUCCESS,
+  EDIT_TITLE_ERROR
 } from './constants'
 
 /**
@@ -95,9 +97,38 @@ export function deletePostError (error) {
  *
  * @return {object} An action object with a type of EDIT_TITLE
  */
-export function editTitle (text) {
+export function editTitle (id, text) {
   return {
     type: EDIT_TITLE,
+    id,
     text
+  }
+}
+
+/**
+ * Dispatched when the post title is successfully edited by the request saga
+ *
+ * @param {string} msg The response message
+ *
+ * @return {object} An action object with a type of EDIT_TITLE_SUCCESS
+ */
+export function editTitleSuccess (msg) {
+  return {
+    type: EDIT_TITLE_SUCCESS,
+    msg
+  }
+}
+
+/**
+ * Dispatched when editing the post title fails
+ *
+ * @param {object} error The error
+ *
+ * @return {object} An action object with a type of EDIT_TITLE_ERROR
+ */
+export function editTitleError (error) {
+  return {
+    type: EDIT_TITLE_ERROR,
+    error
   }
 }

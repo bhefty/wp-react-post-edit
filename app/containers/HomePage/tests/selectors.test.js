@@ -5,7 +5,8 @@ import {
   makeSelectLoading,
   makeSelectError,
   makeSelectRecentPosts,
-  makeSelectId
+  makeSelectId,
+  makeSelectEditText
 } from '../selectors'
 
 describe('selectHome', () => {
@@ -71,5 +72,20 @@ describe('makeSelectRecentPosts', () => {
       }
     })
     expect(textSelector(mockedState)).toEqual(recentPosts)
+  })
+})
+
+describe('makeSelectEditText', () => {
+  const textSelector = makeSelectEditText()
+  it('should select the recent posts', () => {
+    const text = fromJS('Test text')
+    const mockedState = fromJS({
+      home: {
+        titleData: {
+          text
+        }
+      }
+    })
+    expect(textSelector(mockedState)).toEqual(text)
   })
 })

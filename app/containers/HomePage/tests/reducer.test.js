@@ -9,7 +9,9 @@ import {
   deletePost,
   deletePostSuccess,
   deletePostError,
-  editTitle
+  editTitle,
+  editTitleSuccess,
+  editTitleError
 } from '../actions'
 
 describe('homeReducer', () => {
@@ -26,7 +28,8 @@ describe('homeReducer', () => {
         msg: false
       },
       titleData: {
-        text: ''
+        text: '',
+        msg: false
       }
     })
   })
@@ -79,7 +82,6 @@ describe('homeReducer', () => {
     const fixture = { msg: 'Success' }
     const expectedResult = state
       .setIn(['deletePostData', 'msg'], fixture)
-      .set('loading', false)
     expect(homeReducer(state, deletePostSuccess(fixture))).toEqual(expectedResult)
   })
 
@@ -92,9 +94,27 @@ describe('homeReducer', () => {
   })
 
   it('should handle the editTitle action correctly', () => {
-    const fixture = { text: 'New title' }
+    const fixture = { id: '1', text: 'New title' }
     const expectedResult = state
-      .setIn(['titleData', 'text'], fixture)
-    expect(homeReducer(state, editTitle(fixture))).toEqual(expectedResult)
+      .set('loading', true)
+      .set('error', false)
+      .set('id', fixture.id)
+      .setIn(['titleData', 'text'], fixture.text)
+    expect(homeReducer(state, editTitle(fixture.id, fixture.text))).toEqual(expectedResult)
+  })
+
+  it('should handle the editTitleSuccess action correctly', () => {
+    const fixture = { msg: 'Success' }
+    const expectedResult = state
+      .setIn(['titleData', 'msg'], fixture)
+    expect(homeReducer(state, editTitleSuccess(fixture))).toEqual(expectedResult)
+  })
+
+  it('should handle the editTitleError action correclty', () => {
+    const fixture = { error: 'Error' }
+    const expectedResult = state
+      .set('error', fixture)
+      .set('loading', false)
+    expect(homeReducer(state, editTitleError(fixture))).toEqual(expectedResult)
   })
 })

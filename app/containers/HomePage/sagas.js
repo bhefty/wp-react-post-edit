@@ -4,17 +4,21 @@ import { call, put, take, takeLatest, all, fork, select } from 'redux-saga/effec
 import {
   LOAD_RECENT_POSTS,
   DELETE_POST,
-  DELETE_POST_SUCCESS
+  DELETE_POST_SUCCESS,
+  EDIT_TITLE,
+  EDIT_TITLE_SUCCESS
 } from 'containers/HomePage/constants'
 
 import {
   recentPostsLoaded,
   recentPostsLoadingError,
   deletePostSuccess,
-  deletePostError
+  deletePostError,
+  editTitleSuccess,
+  editTitleError
 } from 'containers/HomePage/actions'
 
-import { makeSelectId } from 'containers/HomePage/selectors'
+import { makeSelectId, makeSelectEditText } from 'containers/HomePage/selectors'
 
 import request from 'utils/request'
 
@@ -80,11 +84,57 @@ export function * watchDeletePostSuccess () {
   }
 }
 
+// EDIT
+// Edit post title request/response handler
+export function * editPostTitleSaga () {
+  const id = yield select(makeSelectId())
+  const text = yield select(makeSelectEditText())
+  const root = window.wpApiSettings.root
+  const requestURL = `${root}wp/v2/posts/${id}`
+  const options = {
+    method: 'POST',
+    headers: {
+      'X-WP-Nonce': window.wpApiSettings.nonce,
+      'Content-Type': 'application/json'
+    },
+    credentials: 'same-origin',
+    body: JSON.stringify({
+      title: text
+    })
+  }
+
+  try {
+    // call reqeust helper
+    const editTitleResponse = yield call(request, requestURL, options)
+    yield put(editTitleSuccess(editTitleResponse))
+  } catch (err) {
+    yield put(editTitleError(err))
+  }
+}
+
+// Watch for request to edit title
+export function * watchEditTitle () {
+  while (true) {
+    yield take(EDIT_TITLE)
+    yield call(editPostTitleSaga)
+  }
+}
+
+// Watch for edit post title success to refresh the recent posts
+export function * watchEditTitleSuccess () {
+  while (true) {
+    yield take(EDIT_TITLE_SUCCESS)
+    yield call(getRecentPosts)
+  }
+}
+
 // Bootstrap sagas
 export default function * homeSagas () {
   yield all([
     fork(recentPosts),
     fork(watchDeletePost),
-    fork(watchDeletePostSuccess)
+    fork(watchDeletePostSuccess),
+    fork(watchEditTitle),
+    fork(watchEditTitleSuccess)
   ])
 }
