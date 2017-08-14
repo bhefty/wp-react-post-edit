@@ -3,7 +3,8 @@
 import { call, put, take, takeLatest, all, fork, select } from 'redux-saga/effects'
 import {
   LOAD_RECENT_POSTS,
-  DELETE_POST
+  DELETE_POST,
+  DELETE_POST_SUCCESS
 } from 'containers/HomePage/constants'
 
 import {
@@ -71,10 +72,19 @@ export function * watchDeletePost () {
   }
 }
 
+// Watch for delete post success to refresh recent posts
+export function * watchDeletePostSuccess () {
+  while (true) {
+    yield take(DELETE_POST_SUCCESS)
+    yield call(getRecentPosts)
+  }
+}
+
 // Bootstrap sagas
 export default function * homeSagas () {
   yield all([
     fork(recentPosts),
-    fork(watchDeletePost)
+    fork(watchDeletePost),
+    fork(watchDeletePostSuccess)
   ])
 }
