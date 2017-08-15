@@ -7,14 +7,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import Img from 'components/Img'
+import FeaturedImage from 'components/FeaturedImage'
+import ChangeFeaturedImage from 'components/ChangeFeaturedImage'
 import Wrapper from './Wrapper'
 import Title from './Title'
 
 export class PostItem extends PureComponent {
   state = {
     edit: false,
-    editTitleText: this.props.title
+    editTitleText: this.props.title,
+    imageModalOpen: false
   }
 
   editTitle = () => {
@@ -23,6 +25,14 @@ export class PostItem extends PureComponent {
 
   onEdit = (evt) => {
     this.setState({ editTitleText: evt.target.value })
+  }
+
+  openEditImage = () => {
+    this.setState({ imageModalOpen: true })
+  }
+
+  closeEditImage = () => {
+    this.setState({ imageModalOpen: false })
   }
 
   changeTitle = (evt, id) => {
@@ -34,8 +44,20 @@ export class PostItem extends PureComponent {
     const { title, postId, featuredMedia } = this.props
     return (
       <Wrapper className='row'>
+        {this.state.imageModalOpen &&
+          <ChangeFeaturedImage
+            isOpen={this.state.imageModalOpen}
+            closeModal={this.closeEditImage}
+            onRequestClose={this.state.closeEditImage}
+            postId={postId}
+          />
+        }
         {featuredMedia &&
-          <Img src={featuredMedia} alt={this.state.editTitleText} />
+          <FeaturedImage
+            src={featuredMedia}
+            alt={title}
+            openEditImage={this.openEditImage}
+          />
         }
         <form onSubmit={(evt) => this.changeTitle(evt, postId)} >
           {this.state.edit
