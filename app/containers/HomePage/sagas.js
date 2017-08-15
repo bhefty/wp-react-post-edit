@@ -26,7 +26,7 @@ import request from 'utils/request'
 // Recent posts request/response handler
 export function * getRecentPosts () {
   const root = window.wpApiSettings.root
-  const requestURL = `${root}wp/v2/posts?orderBy=date&order=desc&per_page=5`
+  const requestURL = `${root}wp/v2/posts?_embed&orderBy=date&order=desc&per_page=5`
 
   /* istanbul ignore next */
   try {
