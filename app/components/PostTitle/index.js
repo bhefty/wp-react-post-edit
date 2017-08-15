@@ -12,15 +12,15 @@ import Wrapper from './Wrapper'
 
 function PostTitle (props) {
   return (
-    <Wrapper className={props.className}>
-      <Form onSubmit={props.handleSubmit}>
+    <Wrapper className={`${props.className} row`}>
+      <Form onSubmit={props.handleSubmit} className='col-md-10'>
         {props.editingTitle
           ? <input value={props.editTitleText} onChange={props.handleChange} />
           : <input readOnly value={props.title} />
         }
       </Form>
-      <button onClick={props.handleEdit}>Edit</button>
-      <button onClick={props.handleDelete}>Delete</button>
+      <button onClick={props.handleEdit} className='col-md-1'>E</button>
+      <button onClick={props.handleDelete} className='col-md-1'>X</button>
     </Wrapper>
   )
 }
