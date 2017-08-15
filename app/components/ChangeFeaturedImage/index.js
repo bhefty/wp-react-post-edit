@@ -7,6 +7,10 @@
 import React from 'react'
 import Modal from 'react-modal'
 
+import H2 from 'components/H2'
+import CancelButton from 'components/CancelButton'
+import HeadingWrapper from './HeadingWrapper'
+
 const customStyles = {
   overlay: {
     'zIndex': '99999'
@@ -31,8 +35,10 @@ function ChangeFeaturedImage (props) {
       style={customStyles}
       contentLabel='Change Featured Image'
     >
-      <h1>Change Featured Image</h1>
-      <button onClick={() => props.closeModal()}>Cancel</button>
+      <HeadingWrapper>
+        <H2>Change Featured Image</H2>
+        <CancelButton handleClick={() => props.closeModal()} className='btn-cancel' />
+      </HeadingWrapper>
       <iframe
         src={`http://localhost:8888/react-plugin-test/wp-admin/media-upload.php?post_id=${props.postId}&type=image&TB_iframe=1`}
         width='100%'
