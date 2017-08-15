@@ -9,18 +9,18 @@ import PropTypes from 'prop-types'
 
 import FeaturedImage from 'components/FeaturedImage'
 import ChangeFeaturedImage from 'components/ChangeFeaturedImage'
+import PostTitle from 'components/PostTitle'
 import Wrapper from './Wrapper'
-import Title from './Title'
 
 export class PostItem extends PureComponent {
   state = {
-    edit: false,
+    editingTitle: false,
     editTitleText: this.props.title,
     imageModalOpen: false
   }
 
   editTitle = () => {
-    this.setState({ edit: true })
+    this.setState({ editingTitle: true })
   }
 
   onEdit = (evt) => {
@@ -59,14 +59,15 @@ export class PostItem extends PureComponent {
             openEditImage={this.openEditImage}
           />
         }
-        <form onSubmit={(evt) => this.changeTitle(evt, postId)} >
-          {this.state.edit
-            ? <Title className='col-sm-12' value={this.state.editTitleText} onChange={this.onEdit.bind(this)} />
-            : <input readOnly value={title} />
-          }
-        </form>
-        <button onClick={this.editTitle} style={{ backgroundColor: 'lightblue', color: 'white' }} className='col-sm-12 col-md-6'>Edit Title</button>
-        <button onClick={() => this.props.onDeletePost(postId)} style={{ backgroundColor: 'red', color: 'white' }} className='col-sm-12 col-md-6'>Delete Post</button>
+        <PostTitle
+          handleSubmit={(evt) => this.changeTitle(evt, postId)}
+          handleChange={this.onEdit.bind(this)}
+          handleEdit={this.editTitle}
+          handleDelete={() => this.props.onDeletePost(postId)}
+          title={title}
+          editingTitle={this.state.editingTitle}
+          editTitleText={this.state.editTitleText}
+        />
       </Wrapper>
     )
   }
