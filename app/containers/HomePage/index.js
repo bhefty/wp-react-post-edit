@@ -26,6 +26,10 @@ export class HomePage extends PureComponent {
     error: PropTypes.string
   }
 
+  componentDidMount () {
+    this.props.onLoadRecentPosts()
+  }
+
   render () {
     return (
       <div className='row'>
@@ -54,7 +58,6 @@ export class HomePage extends PureComponent {
             Made by Bill Hefty
           </footer>
         </div>
-        <button onClick={this.props.onLoadRecentPosts}>Load recent posts</button>
       </div>
     )
   }

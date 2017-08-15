@@ -1,5 +1,6 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import sinon from 'sinon'
+import { shallow, mount } from 'enzyme'
 
 import { HomePage, mapDispatchToProps } from '../index'
 import { loadRecentPosts, deletePost, editTitle } from '../actions'
@@ -8,6 +9,15 @@ describe('<HomePage />', () => {
   it('should render to the page', () => {
     const renderedComponent = shallow(<HomePage />)
     expect(renderedComponent.find('div').length).toBeGreaterThan(0)
+  })
+
+  it('should call componentDidMount', () => {
+    sinon.spy(HomePage.prototype, 'componentDidMount')
+    const renderedComponent = mount( // eslint-disable-line
+      <HomePage onLoadRecentPosts={jest.fn()} />
+    )
+    expect(HomePage.prototype.componentDidMount.calledOnce).toEqual(true)
+    HomePage.prototype.componentDidMount.restore()
   })
 
   describe('mapDispatchToProps', () => {
