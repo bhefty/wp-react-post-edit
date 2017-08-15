@@ -8,10 +8,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Form from './Form'
+import Wrapper from './Wrapper'
 
 function PostTitle (props) {
   return (
-    <div>
+    <Wrapper className={props.className}>
       <Form onSubmit={props.handleSubmit}>
         {props.editingTitle
           ? <input value={props.editTitleText} onChange={props.handleChange} />
@@ -20,7 +21,7 @@ function PostTitle (props) {
       </Form>
       <button onClick={props.handleEdit}>Edit</button>
       <button onClick={props.handleDelete}>Delete</button>
-    </div>
+    </Wrapper>
   )
 }
 

@@ -52,14 +52,14 @@ export class PostItem extends PureComponent {
             postId={postId}
           />
         }
-        {featuredMedia &&
-          <FeaturedImage
-            src={featuredMedia}
-            alt={title}
-            openEditImage={this.openEditImage}
-          />
-        }
+        <FeaturedImage
+          className='col-md-4'
+          src={featuredMedia || 'https://images.pexels.com/photos/66100/pexels-photo-66100.jpeg'}
+          alt={title}
+          openEditImage={this.openEditImage}
+        />
         <PostTitle
+          className='col-md-8'
           handleSubmit={(evt) => this.changeTitle(evt, postId)}
           handleChange={this.onEdit.bind(this)}
           handleEdit={this.editTitle}

@@ -11,9 +11,9 @@ import Img from 'components/Img'
 import EditButton from 'components/EditButton'
 import Wrapper from './Wrapper'
 
-function FeaturedImage ({ src, alt, openEditImage }) {
+function FeaturedImage ({ src, alt, openEditImage, className }) {
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <Img src={src} alt={alt} />
       <EditButton handleClick={openEditImage} />
     </Wrapper>
