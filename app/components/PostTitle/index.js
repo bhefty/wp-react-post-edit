@@ -7,6 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import EditButton from 'components/EditButton'
+import DeleteButton from 'components/DeleteButton'
+import SaveButton from 'components/SaveButton'
 import Form from './Form'
 import Wrapper from './Wrapper'
 
@@ -19,8 +22,11 @@ function PostTitle (props) {
           : <input readOnly value={props.title} />
         }
       </Form>
-      <button onClick={props.handleEdit} className='col-md-1'>E</button>
-      <button onClick={props.handleDelete} className='col-md-1'>X</button>
+      {props.editingTitle
+        ? <SaveButton handleClick={props.handleSubmit} className='col-md-1 btn-save' />
+        : <EditButton handleClick={props.handleEdit} className='col-md-1 btn-edit' />
+      }
+      <DeleteButton handleClick={props.handleDelete} className='col-md-1 btn-delete' />
     </Wrapper>
   )
 }
