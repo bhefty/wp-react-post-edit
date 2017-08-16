@@ -1,10 +1,13 @@
-// import React from 'react'
-// import { shallow } from 'enzyme'
+import React from 'react'
+import { shallow } from 'enzyme'
 
-// import DeleteConfirmation from '../index'
+import DeleteConfirmation from '../index'
 
 describe('<DeleteConfirmation />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false)
+  const renderedComponent = shallow(
+    <DeleteConfirmation isOpen />
+  )
+  it('should render Modal', () => {
+    expect(renderedComponent.find('Modal').length).toEqual(1)
   })
 })
