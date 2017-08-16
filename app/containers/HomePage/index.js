@@ -43,6 +43,7 @@ export class HomePage extends PureComponent {
             loading={this.props.loading}
             onDeletePost={this.props.onDeletePost}
             onChangeTitle={this.props.onChangeTitle}
+            onReloadPosts={this.props.onLoadRecentPosts}
             text={this.props.text}
           />
         </div>

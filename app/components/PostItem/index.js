@@ -32,6 +32,7 @@ export class PostItem extends PureComponent {
   }
 
   closeEditImage = () => {
+    this.props.onReloadPosts()
     this.setState({ imageModalOpen: false })
   }
 

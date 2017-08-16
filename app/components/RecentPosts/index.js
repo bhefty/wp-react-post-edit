@@ -20,7 +20,7 @@ function decodeHtml (html) {
   return txt.value
 }
 
-function RecentPosts ({ loading, error, recentPosts, onDeletePost, onChangeTitle }) {
+function RecentPosts ({ loading, error, recentPosts, onDeletePost, onChangeTitle, onReloadPosts }) {
   if (loading) {
     return <LoadingIndicator />
   }
@@ -50,6 +50,7 @@ function RecentPosts ({ loading, error, recentPosts, onDeletePost, onChangeTitle
               featuredMedia={featuredMedia}
               onDeletePost={onDeletePost}
               onChangeTitle={onChangeTitle}
+              onReloadPosts={onReloadPosts}
             />
           )
         })}
@@ -68,7 +69,8 @@ RecentPosts.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.any,
   onDeletePost: PropTypes.func,
-  onChangeTitle: PropTypes.func
+  onChangeTitle: PropTypes.func,
+  onReloadPosts: PropTypes.func
 }
 
 export default RecentPosts
