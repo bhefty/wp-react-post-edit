@@ -30,8 +30,8 @@ Write a WordPress plugin that allows you to edit the 5 most recent posts (post t
 - [x] The application **must** support editing post titles for the displayed posts
 - [x] The application **must** support deleting any of the displayed posts
 - [x] When a post is deleted, the displayed posts **must** refresh to always keep at least 5 posts on display
-- [ ] Displayed posts **must** show their [featured image](http://www.wpbeginner.com/beginners-guide/how-to-add-featured-image-or-post-thumbnails-in-wordpress/) (if available)
-- [ ] **Extra credit** if the application allows changing the featured image of a displayed post
+- [x] Displayed posts **must** show their [featured image](http://www.wpbeginner.com/beginners-guide/how-to-add-featured-image-or-post-thumbnails-in-wordpress/) (if available)
+- [x] **Extra credit** if the application allows changing the featured image of a displayed post
 
 ### Bonus Points
 - [x] Include unit tests
