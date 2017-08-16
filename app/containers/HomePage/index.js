@@ -37,15 +37,18 @@ export class HomePage extends PureComponent {
           <H1>Quick Editor</H1>
           <p>Update and change the title or featured image of one of your recent posts quickly. Don’t need it anymore? Feel free to delete it!</p>
           <H2>Recent Posts</H2>
-          <RecentPosts
-            recentPosts={this.props.recentPosts}
-            error={this.props.error}
-            loading={this.props.loading}
-            onDeletePost={this.props.onDeletePost}
-            onChangeTitle={this.props.onChangeTitle}
-            onReloadPosts={this.props.onLoadRecentPosts}
-            text={this.props.text}
-          />
+          {this.props.recentPosts.length > 0
+            ? <RecentPosts
+              recentPosts={this.props.recentPosts}
+              error={this.props.error}
+              loading={this.props.loading}
+              onDeletePost={this.props.onDeletePost}
+              onChangeTitle={this.props.onChangeTitle}
+              onReloadPosts={this.props.onLoadRecentPosts}
+              text={this.props.text}
+            />
+            : <p>Hmmm... you don't appear to have any posts...  :(</p>
+          }
         </div>
         <div className='col-md-offset-1 col-md-3'>
           <H2>Help</H2>
