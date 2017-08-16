@@ -7,14 +7,14 @@ import { loadRecentPosts, deletePost, editTitle } from '../actions'
 
 describe('<HomePage />', () => {
   it('should render to the page', () => {
-    const renderedComponent = shallow(<HomePage />)
+    const renderedComponent = shallow(<HomePage recentPosts={[]} />)
     expect(renderedComponent.find('div').length).toBeGreaterThan(0)
   })
 
   it('should call componentDidMount', () => {
     sinon.spy(HomePage.prototype, 'componentDidMount')
     const renderedComponent = mount( // eslint-disable-line
-      <HomePage onLoadRecentPosts={jest.fn()} />
+      <HomePage recentPosts={[]} onLoadRecentPosts={jest.fn()} />
     )
     expect(HomePage.prototype.componentDidMount.calledOnce).toEqual(true)
     HomePage.prototype.componentDidMount.restore()
