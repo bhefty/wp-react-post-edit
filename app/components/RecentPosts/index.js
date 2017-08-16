@@ -38,6 +38,7 @@ function RecentPosts ({ loading, error, recentPosts, onDeletePost, onChangeTitle
         {recentPosts.map((post, idx) => {
           let featuredMedia = false
 
+          /* istanbul ignore next */
           // Check if post has a featured image
           if (post._embedded['wp:featuredmedia']) {
             featuredMedia = post._embedded['wp:featuredmedia'][0].source_url

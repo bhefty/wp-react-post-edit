@@ -11,6 +11,20 @@ describe('<HomePage />', () => {
     expect(renderedComponent.find('div').length).toBeGreaterThan(0)
   })
 
+  it('should render message if no posts are loaded', () => {
+    const renderedComponent = shallow(<HomePage recentPosts={[]} />)
+    expect(renderedComponent.contains(<p>Hmmm... you don't appear to have any posts...  :(</p>)).toBe(true)
+  })
+
+  it('should render RecentPosts if more than 1 post exists', () => {
+    const recentPosts = [{
+      title: 'test',
+      id: '1'
+    }]
+    const renderedComponent = shallow(<HomePage recentPosts={recentPosts} />)
+    expect(renderedComponent.find('RecentPosts').length).toEqual(1)
+  })
+
   it('should call componentDidMount', () => {
     sinon.spy(HomePage.prototype, 'componentDidMount')
     const renderedComponent = mount( // eslint-disable-line

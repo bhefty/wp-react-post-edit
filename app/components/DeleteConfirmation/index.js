@@ -28,7 +28,7 @@ function DeleteConfirmation (props) {
   return (
     <Modal
       isOpen={props.isOpen}
-      onRequestClose={() => props.closeModal(false, props.postId)}
+      onRequestClose={/* istanbul ignore next */() => props.closeModal(false, props.postId)}
       style={customStyles}
       contentLabel='Delete Confirmation'
     >

@@ -37,7 +37,7 @@ function ChangeFeaturedImage (props) {
     >
       <HeadingWrapper>
         <H2>Change Featured Image</H2>
-        <CancelButton handleClick={() => props.closeModal()} className='btn-cancel' />
+        <CancelButton handleClick={props.closeModal} className='btn-cancel' />
       </HeadingWrapper>
       <iframe
         src={`http://localhost:8888/react-plugin-test/wp-admin/media-upload.php?post_id=${props.postId}&type=image&TB_iframe=1`}

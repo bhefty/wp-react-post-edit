@@ -90,7 +90,6 @@ export class PostItem extends PureComponent {
             postId={postId}
             closeModal={(canDelete, postId) => this.closeDeleteConfirmation(canDelete, postId)}
             onRequestClose={(canDelete, postId) => this.closeDeleteConfirmation(canDelete, postId)}
-            handleDelete={() => this.deleteConfirmation(postId)}
           />
         }
       </Wrapper>
