@@ -35,7 +35,7 @@ export class HomePage extends PureComponent {
       <div className='row'>
         <div className='col-md-8'>
           <H1>Quick Editor</H1>
-          <p>Update and change the title of one of your recent posts quickly. Don’t need it anymore? Feel free to delete it!</p>
+          <p>Update and change the title or featured image of one of your recent posts quickly. Don’t need it anymore? Feel free to delete it!</p>
           <H2>Recent Posts</H2>
           <RecentPosts
             recentPosts={this.props.recentPosts}
@@ -48,15 +48,27 @@ export class HomePage extends PureComponent {
           />
         </div>
         <div className='col-md-offset-1 col-md-3'>
-          <H3>Help</H3>
+          <H2>Help</H2>
+          <H3>Title</H3>
           <ul>
-            <li>Click the title text to edit it</li>
+            <li>Click the Edit icon next to the title</li>
+            <li>Type in a new title</li>
             <li>Click Save when finished editing</li>
-            <li>Click Cancel to discard changes without saving</li>
-            <li>Click Delete Post to discard the entire post</li>
           </ul>
+          <H3>Featured Image</H3>
+          <ul>
+            <li>Click the Edit icon at the bottom of the image</li>
+            <li>Upload a new image or choose one from your gallery</li>
+            <li>Save Changes and close the popup</li>
+          </ul>
+          <H3>Delete Post</H3>
+          <ul>
+            <li>Click the Delete icon next to the title</li>
+            <li>Confirm that you want to delete</li>
+          </ul>
+          <br />
           <footer>
-            Made by Bill Hefty
+            Made by <a href='https://www.billhefty.com' target='_blank'>Bill Hefty</a>
           </footer>
         </div>
       </div>
