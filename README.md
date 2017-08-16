@@ -37,3 +37,19 @@ Write a WordPress plugin that allows you to edit the 5 most recent posts (post t
 - [x] Include unit tests
 - [x] Use at least ES6 as a JavaScript version
 - [x] Leverage the latest version of [webpack](https://webpack.js.org/)
+
+<hr />
+
+### Setup
+1. Ensure a WordPress site is up and running (local or otherwise)
+2. Nagivate to the `wp-content > plugins` folder
+3. Git clone this repo to a folder such as `react-plugin-demo`. e.g.: `git clone https://github.com/bhefty/wp-react-post-edit.git react-plugin-demo`
+4. Your `plugins` folder should look similar to this:
+  <img src='./assets/plugins_folder.png' alt='Plugins Folder' />
+5. Cd into the newly cloned repo and run `npm install` or `yarn install`
+6. Run `npm run build` or `yarn build`
+7. Go to your WordPress site and navigate to the Plugins page on the admin panel
+8. Find the new plugin and click Activate
+  <img src='./assets/plugins_admin.png' alt='Plugins Admin Panel' />
+9. Click on the new `Post Editor` button found on the left admin panel, and your last 5 posts will appear!
+  <img src='./assets/plugin_home.png' alt='Plugin Home Page' />
