@@ -53,3 +53,5 @@ Write a WordPress plugin that allows you to edit the 5 most recent posts (post t
   <img src='./assets/plugins_admin.png' alt='Plugins Admin Panel' />
 9. Click on the new `Post Editor` button found on the left admin panel, and your last 5 posts will appear!
   <img src='./assets/plugin_home.png' alt='Plugin Home Page' />
+
+Alternatively, to conserve space, rather than keeping the entire repo within your WordPress site folder, you can house the repo elsewhere and run the build command. Then copy over **both** `wp-react-post-edit.php` and the `build` folder into a folder such as `react-plugin-demo` within the plugins folder of the WordPress site.
