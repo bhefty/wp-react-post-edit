@@ -68,7 +68,7 @@ export class PostItem extends PureComponent {
         />
         <PostTitle
           className='col-md-8'
-          handleSubmit={(evt) => this.changeTitle(evt, postId)}
+          handleSubmit={/* istanbul ignore next */ (evt) => this.changeTitle(evt, postId)}
           handleChange={this.onEdit.bind(this)}
           handleEdit={this.editTitle}
           handleDelete={this.openDeleteConfirmation}
@@ -88,8 +88,8 @@ export class PostItem extends PureComponent {
           <DeleteConfirmation
             isOpen={this.state.deleteModalOpen}
             postId={postId}
-            closeModal={(canDelete, postId) => this.closeDeleteConfirmation(canDelete, postId)}
-            onRequestClose={(canDelete, postId) => this.closeDeleteConfirmation(canDelete, postId)}
+            closeModal={/* istanbul ignore next */ (canDelete, postId) => this.closeDeleteConfirmation(canDelete, postId)}
+            onRequestClose={/* istanbul ignore next */ (canDelete, postId) => this.closeDeleteConfirmation(canDelete, postId)}
           />
         }
       </Wrapper>
